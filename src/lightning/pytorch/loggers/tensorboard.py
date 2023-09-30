@@ -25,7 +25,9 @@ from torch import Tensor
 
 import lightning.pytorch as pl
 from lightning.fabric.loggers.tensorboard import _TENSORBOARD_AVAILABLE
-from lightning.fabric.loggers.tensorboard import TensorBoardLogger as FabricTensorBoardLogger
+from lightning.fabric.loggers.tensorboard import (
+    TensorBoardLogger as FabricTensorBoardLogger,
+)
 from lightning.fabric.utilities.cloud_io import _is_dir
 from lightning.fabric.utilities.logger import _convert_params
 from lightning.fabric.utilities.types import _PATH

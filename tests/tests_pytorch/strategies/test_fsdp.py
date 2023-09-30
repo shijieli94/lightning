@@ -12,6 +12,8 @@ from unittest.mock import ANY, MagicMock, Mock
 import pytest
 import torch
 import torch.nn as nn
+from tests_pytorch.helpers.runif import RunIf
+
 from lightning.fabric.plugins.environments import LightningEnvironment
 from lightning.fabric.utilities.imports import (
     _TORCH_GREATER_EQUAL_1_12,
@@ -27,11 +29,17 @@ from lightning.pytorch.strategies import FSDPStrategy
 from lightning.pytorch.trainer.states import TrainerFn
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
 
-from tests_pytorch.helpers.runif import RunIf
-
 if _TORCH_GREATER_EQUAL_1_12:
-    from torch.distributed.fsdp.fully_sharded_data_parallel import CPUOffload, FullyShardedDataParallel, MixedPrecision
-    from torch.distributed.fsdp.wrap import always_wrap_policy, size_based_auto_wrap_policy, wrap
+    from torch.distributed.fsdp.fully_sharded_data_parallel import (
+        CPUOffload,
+        FullyShardedDataParallel,
+        MixedPrecision,
+    )
+    from torch.distributed.fsdp.wrap import (
+        always_wrap_policy,
+        size_based_auto_wrap_policy,
+        wrap,
+    )
 else:
     size_based_auto_wrap_policy = lambda *_, **__: False
 if _TORCH_GREATER_EQUAL_2_0:

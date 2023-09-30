@@ -1,6 +1,6 @@
 from time import sleep
 
-from lightning.app import LightningWork, LightningFlow, LightningApp
+from lightning.app import LightningApp, LightningFlow, LightningWork
 
 
 # This work takes an hour to run

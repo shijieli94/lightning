@@ -1,10 +1,12 @@
-from lightning.app import LightningWork, LightningApp, CloudCompute
 import os
+
+from lightning.app import CloudCompute, LightningApp, LightningWork
 
 
 class YourComponent(LightningWork):
-   def run(self):
-      os.listdir('/foo')
+    def run(self):
+        os.listdir("/foo")
+
 
 # mount the files on the s3 bucket under this path
 mount = Mount(source="s3://lightning-example-public/", mount_path="/foo")

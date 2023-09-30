@@ -23,7 +23,11 @@ from lightning.pytorch.callbacks import BasePredictionWriter
 from lightning.pytorch.loops.fetchers import _DataFetcher, _DataLoaderIterDataFetcher
 from lightning.pytorch.loops.loop import _Loop
 from lightning.pytorch.loops.progress import _Progress
-from lightning.pytorch.loops.utilities import _no_grad_context, _select_data_fetcher, _verify_dataloader_idx_requirement
+from lightning.pytorch.loops.utilities import (
+    _no_grad_context,
+    _select_data_fetcher,
+    _verify_dataloader_idx_requirement,
+)
 from lightning.pytorch.overrides.distributed import _IndexBatchSamplerWrapper
 from lightning.pytorch.strategies.launchers import _MultiProcessingLauncher
 from lightning.pytorch.trainer import call

@@ -16,8 +16,17 @@ from typing import Union
 import torch
 
 import lightning.pytorch as pl
-from lightning.fabric.utilities.imports import _TORCH_GREATER_EQUAL_2_0, _TORCH_GREATER_EQUAL_2_1
-from lightning.pytorch.strategies import DDPStrategy, DeepSpeedStrategy, FSDPStrategy, SingleDeviceStrategy, Strategy
+from lightning.fabric.utilities.imports import (
+    _TORCH_GREATER_EQUAL_2_0,
+    _TORCH_GREATER_EQUAL_2_1,
+)
+from lightning.pytorch.strategies import (
+    DDPStrategy,
+    DeepSpeedStrategy,
+    FSDPStrategy,
+    SingleDeviceStrategy,
+    Strategy,
+)
 from lightning.pytorch.utilities.model_helpers import _check_mixed_imports
 
 

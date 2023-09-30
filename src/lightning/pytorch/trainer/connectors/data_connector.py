@@ -16,7 +16,13 @@ from dataclasses import dataclass, field
 from typing import Any, Iterable, Optional, Tuple, Union
 
 import torch.multiprocessing as mp
-from torch.utils.data import BatchSampler, DataLoader, RandomSampler, Sampler, SequentialSampler
+from torch.utils.data import (
+    BatchSampler,
+    DataLoader,
+    RandomSampler,
+    Sampler,
+    SequentialSampler,
+)
 from torch.utils.data.distributed import DistributedSampler
 
 import lightning.pytorch as pl

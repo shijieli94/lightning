@@ -1,7 +1,7 @@
 from commands.notebook.run import RunNotebook, RunNotebookConfig
 from lit_jupyter import JupyterLab
 
-from lightning.app import LightningFlow, LightningApp, CloudCompute
+from lightning.app import CloudCompute, LightningApp, LightningFlow
 from lightning.app.structures import Dict
 
 
@@ -16,9 +16,7 @@ class Flow(LightningFlow):
             return f"The Notebook {config.name} already exists."
         else:
             # 2. Dynamically creates the Notebook if it doesn't exist and runs it.
-            self.notebooks[config.name] = JupyterLab(
-                cloud_compute=CloudCompute(config.cloud_compute)
-            )
+            self.notebooks[config.name] = JupyterLab(cloud_compute=CloudCompute(config.cloud_compute))
             self.notebooks[config.name].run()
             return f"The Notebook {config.name} was created."
 

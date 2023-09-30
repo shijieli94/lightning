@@ -3,8 +3,9 @@ import sys
 from unittest.mock import Mock, patch
 
 import arrow
-import lightning.app
 import pytest
+
+import lightning.app
 from lightning.app.utilities.cli_helpers import (
     _arrow_time_callback,
     _check_environment_and_redirect,

@@ -1,1 +1,5 @@
-from lightning.pytorch.demos.transformer import LightningTransformer, Transformer, WikiText2  # noqa: F401
+from lightning.pytorch.demos.transformer import (  # noqa: F401
+    LightningTransformer,
+    Transformer,
+    WikiText2,
+)

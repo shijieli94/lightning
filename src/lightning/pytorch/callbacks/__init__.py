@@ -17,7 +17,9 @@ from lightning.pytorch.callbacks.checkpoint import Checkpoint
 from lightning.pytorch.callbacks.device_stats_monitor import DeviceStatsMonitor
 from lightning.pytorch.callbacks.early_stopping import EarlyStopping
 from lightning.pytorch.callbacks.finetuning import BackboneFinetuning, BaseFinetuning
-from lightning.pytorch.callbacks.gradient_accumulation_scheduler import GradientAccumulationScheduler
+from lightning.pytorch.callbacks.gradient_accumulation_scheduler import (
+    GradientAccumulationScheduler,
+)
 from lightning.pytorch.callbacks.lambda_function import LambdaCallback
 from lightning.pytorch.callbacks.lr_finder import LearningRateFinder
 from lightning.pytorch.callbacks.lr_monitor import LearningRateMonitor
@@ -25,7 +27,11 @@ from lightning.pytorch.callbacks.model_checkpoint import ModelCheckpoint
 from lightning.pytorch.callbacks.model_summary import ModelSummary
 from lightning.pytorch.callbacks.on_exception_checkpoint import OnExceptionCheckpoint
 from lightning.pytorch.callbacks.prediction_writer import BasePredictionWriter
-from lightning.pytorch.callbacks.progress import ProgressBar, RichProgressBar, TQDMProgressBar
+from lightning.pytorch.callbacks.progress import (
+    ProgressBar,
+    RichProgressBar,
+    TQDMProgressBar,
+)
 from lightning.pytorch.callbacks.pruning import ModelPruning
 from lightning.pytorch.callbacks.rich_model_summary import RichModelSummary
 from lightning.pytorch.callbacks.spike import SpikeDetection

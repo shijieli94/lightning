@@ -39,11 +39,23 @@ from lightning_utilities.core.overrides import is_overridden
 from lightning_utilities.core.rank_zero import rank_zero_deprecation, rank_zero_warn
 from torch import Tensor
 from torch.optim import Optimizer
-from torch.utils.data import BatchSampler, DataLoader, DistributedSampler, RandomSampler, SequentialSampler
+from torch.utils.data import (
+    BatchSampler,
+    DataLoader,
+    DistributedSampler,
+    RandomSampler,
+    SequentialSampler,
+)
 
 from lightning.fabric.accelerators.accelerator import Accelerator
-from lightning.fabric.connector import _PLUGIN_INPUT, _PRECISION_INPUT, _Connector, _is_using_cli
+from lightning.fabric.connector import (
+    _PLUGIN_INPUT,
+    _PRECISION_INPUT,
+    _Connector,
+    _is_using_cli,
+)
 from lightning.fabric.loggers import Logger
+
 from lightning.fabric.plugins import Precision  # avoid circular imports: # isort: split
 from lightning.fabric.strategies import (
     DataParallelStrategy,
@@ -58,7 +70,10 @@ from lightning.fabric.strategies.fsdp import _has_meta_device_parameters
 from lightning.fabric.strategies.launchers import _MultiProcessingLauncher, _XLALauncher
 from lightning.fabric.strategies.strategy import TBroadcast, _Sharded
 from lightning.fabric.utilities import move_data_to_device
-from lightning.fabric.utilities.apply_func import convert_tensors_to_scalars, convert_to_tensors
+from lightning.fabric.utilities.apply_func import (
+    convert_tensors_to_scalars,
+    convert_to_tensors,
+)
 from lightning.fabric.utilities.data import (
     _auto_add_worker_init_fn,
     _replace_dunder_methods,

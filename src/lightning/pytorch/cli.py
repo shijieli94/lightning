@@ -15,7 +15,18 @@ import os
 import sys
 from functools import partial, update_wrapper
 from types import MethodType
-from typing import Any, Callable, Dict, Iterable, List, Optional, Set, Tuple, Type, Union
+from typing import (
+    Any,
+    Callable,
+    Dict,
+    Iterable,
+    List,
+    Optional,
+    Set,
+    Tuple,
+    Type,
+    Union,
+)
 
 import torch
 from lightning_utilities.core.imports import RequirementCache
@@ -25,7 +36,13 @@ from torch.optim import Optimizer
 import lightning.pytorch as pl
 from lightning.fabric.utilities.cloud_io import get_filesystem
 from lightning.fabric.utilities.types import _TORCH_LRSCHEDULER
-from lightning.pytorch import Callback, LightningDataModule, LightningModule, Trainer, seed_everything
+from lightning.pytorch import (
+    Callback,
+    LightningDataModule,
+    LightningModule,
+    Trainer,
+    seed_everything,
+)
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
 from lightning.pytorch.utilities.model_helpers import is_overridden
 from lightning.pytorch.utilities.rank_zero import rank_zero_warn

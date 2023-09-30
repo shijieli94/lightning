@@ -1,6 +1,7 @@
 from unittest import mock
 
 from click.testing import CliRunner
+
 from lightning.app.cli.lightning_cli import show
 
 

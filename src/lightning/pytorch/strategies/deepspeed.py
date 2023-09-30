@@ -19,7 +19,17 @@ import platform
 from collections import OrderedDict
 from contextlib import contextmanager
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Dict, Generator, List, Mapping, Optional, Tuple, Union
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Dict,
+    Generator,
+    List,
+    Mapping,
+    Optional,
+    Tuple,
+    Union,
+)
 
 import torch
 from torch.nn import Module
@@ -45,7 +55,11 @@ from lightning.pytorch.trainer.states import TrainerFn
 from lightning.pytorch.utilities import GradClipAlgorithmType
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
 from lightning.pytorch.utilities.model_helpers import is_overridden
-from lightning.pytorch.utilities.rank_zero import WarningCache, rank_zero_info, rank_zero_warn
+from lightning.pytorch.utilities.rank_zero import (
+    WarningCache,
+    rank_zero_info,
+    rank_zero_warn,
+)
 from lightning.pytorch.utilities.types import LRSchedulerConfig
 
 log = logging.getLogger(__name__)

@@ -16,12 +16,27 @@ from typing import Sized
 from unittest import mock
 from unittest.mock import Mock
 
-import lightning.fabric
 import pytest
+from lightning_utilities.test.warning import no_warning_call
+from tests_pytorch.helpers.runif import RunIf
+from torch import Tensor
+from torch.utils.data import (
+    BatchSampler,
+    DataLoader,
+    DistributedSampler,
+    Sampler,
+    SequentialSampler,
+)
+
+import lightning.fabric
 from lightning.fabric.utilities.distributed import DistributedSamplerWrapper
 from lightning.fabric.utilities.warnings import PossibleUserWarning
 from lightning.pytorch import Trainer
-from lightning.pytorch.demos.boring_classes import BoringDataModule, BoringModel, RandomDataset
+from lightning.pytorch.demos.boring_classes import (
+    BoringDataModule,
+    BoringModel,
+    RandomDataset,
+)
 from lightning.pytorch.trainer.connectors.data_connector import (
     _check_dataloader_iterable,
     _DataHookSelector,
@@ -33,11 +48,6 @@ from lightning.pytorch.trainer.states import RunningStage, TrainerFn
 from lightning.pytorch.utilities.combined_loader import CombinedLoader
 from lightning.pytorch.utilities.data import _update_dataloader
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
-from lightning_utilities.test.warning import no_warning_call
-from torch import Tensor
-from torch.utils.data import BatchSampler, DataLoader, DistributedSampler, Sampler, SequentialSampler
-
-from tests_pytorch.helpers.runif import RunIf
 
 
 @RunIf(skip_windows=True)

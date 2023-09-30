@@ -1,9 +1,9 @@
 import os
 from pathlib import Path
 
-from lightning.app import LightningApp, LightningFlow
-
 from examples.components.python.component_tracer import PLTracerPythonScript
+
+from lightning.app import LightningApp, LightningFlow
 
 
 class RootFlow(LightningFlow):

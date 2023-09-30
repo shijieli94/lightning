@@ -12,14 +12,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from pathlib import Path
-from typing import Any, Callable, Dict, Iterator, List, Optional, Protocol, TypeVar, Union, runtime_checkable
+from typing import (
+    Any,
+    Callable,
+    Dict,
+    Iterator,
+    List,
+    Optional,
+    Protocol,
+    TypeVar,
+    Union,
+    runtime_checkable,
+)
 
 import torch
 from torch import Tensor
 from torch.optim import Optimizer
 from typing_extensions import TypeAlias
 
-from lightning.fabric.utilities.imports import _TORCH_GREATER_EQUAL_1_13, _TORCH_GREATER_EQUAL_2_0
+from lightning.fabric.utilities.imports import (
+    _TORCH_GREATER_EQUAL_1_13,
+    _TORCH_GREATER_EQUAL_2_0,
+)
 
 UntypedStorage: TypeAlias = (
     torch.UntypedStorage if _TORCH_GREATER_EQUAL_1_13 else torch._UntypedStorage  # type: ignore[valid-type]

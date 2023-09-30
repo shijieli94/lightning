@@ -16,13 +16,13 @@ from unittest import mock
 from unittest.mock import Mock
 
 import torch
+from tests_pytorch.helpers.runif import RunIf
+
 from lightning.fabric.accelerators.xla import _using_pjrt
 from lightning.pytorch import Trainer
 from lightning.pytorch.accelerators import XLAAccelerator
 from lightning.pytorch.demos.boring_classes import BoringModel
 from lightning.pytorch.strategies import XLAStrategy
-
-from tests_pytorch.helpers.runif import RunIf
 
 
 class BoringModelTPU(BoringModel):

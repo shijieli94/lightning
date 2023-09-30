@@ -16,11 +16,11 @@ from multiprocessing import Event, Process
 from unittest import mock
 
 import pytest
+from tests_pytorch.helpers.runif import RunIf
+
 from lightning.pytorch import Trainer
 from lightning.pytorch.demos.boring_classes import BoringModel
 from lightning.pytorch.profilers import XLAProfiler
-
-from tests_pytorch.helpers.runif import RunIf
 
 
 @RunIf(tpu=True, standalone=True)

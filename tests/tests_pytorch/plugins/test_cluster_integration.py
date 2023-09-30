@@ -16,12 +16,16 @@ from unittest import mock
 
 import pytest
 import torch
-from lightning.fabric.plugins.environments import LightningEnvironment, SLURMEnvironment, TorchElasticEnvironment
+from tests_pytorch.helpers.runif import RunIf
+
+from lightning.fabric.plugins.environments import (
+    LightningEnvironment,
+    SLURMEnvironment,
+    TorchElasticEnvironment,
+)
 from lightning.pytorch import Trainer
 from lightning.pytorch.strategies import DDPStrategy, DeepSpeedStrategy
 from lightning.pytorch.utilities.rank_zero import rank_zero_only
-
-from tests_pytorch.helpers.runif import RunIf
 
 
 def environment_combinations():

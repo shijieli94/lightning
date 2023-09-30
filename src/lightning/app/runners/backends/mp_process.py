@@ -20,7 +20,10 @@ from lightning.app.core import constants
 from lightning.app.core.queues import QueuingSystem
 from lightning.app.runners.backends.backend import Backend, WorkManager
 from lightning.app.utilities.enum import WorkStageStatus
-from lightning.app.utilities.network import _check_service_url_is_ready, find_free_network_port
+from lightning.app.utilities.network import (
+    _check_service_url_is_ready,
+    find_free_network_port,
+)
 from lightning.app.utilities.port import disable_port, enable_port
 from lightning.app.utilities.proxies import ProxyWorkRun, WorkRunner
 

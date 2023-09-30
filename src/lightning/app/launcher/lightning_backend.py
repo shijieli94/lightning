@@ -44,7 +44,10 @@ from lightning.app.utilities.network import LightningClient, _check_service_url_
 
 logger = logging.getLogger(__name__)
 
-from lightning_cloud.openapi import SpecLightningappInstanceIdWorksBody, WorksIdBody  # noqa: E402
+from lightning_cloud.openapi import (  # noqa: E402
+    SpecLightningappInstanceIdWorksBody,
+    WorksIdBody,
+)
 
 LIGHTNING_STOP_TIMEOUT = int(os.getenv("LIGHTNING_STOP_TIMEOUT", 2 * 60))
 

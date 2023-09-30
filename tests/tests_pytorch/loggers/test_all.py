@@ -19,6 +19,10 @@ from unittest.mock import ANY, Mock
 
 import pytest
 import torch
+from tests_pytorch.helpers.runif import RunIf
+from tests_pytorch.loggers.test_comet import _patch_comet_atexit
+from tests_pytorch.loggers.test_mlflow import mock_mlflow_run_creation
+
 from lightning.pytorch import Callback, Trainer
 from lightning.pytorch.demos.boring_classes import BoringModel
 from lightning.pytorch.loggers import (
@@ -32,10 +36,6 @@ from lightning.pytorch.loggers import (
 from lightning.pytorch.loggers.logger import DummyExperiment, Logger
 from lightning.pytorch.loggers.tensorboard import _TENSORBOARD_AVAILABLE
 from lightning.pytorch.tuner.tuning import Tuner
-
-from tests_pytorch.helpers.runif import RunIf
-from tests_pytorch.loggers.test_comet import _patch_comet_atexit
-from tests_pytorch.loggers.test_mlflow import mock_mlflow_run_creation
 
 ALL_LOGGER_CLASSES = (
     CometLogger,

@@ -14,7 +14,18 @@
 import logging
 from abc import ABC, abstractmethod
 from contextlib import ExitStack
-from typing import Any, Callable, ContextManager, Dict, Iterable, List, Optional, Tuple, TypeVar, Union
+from typing import (
+    Any,
+    Callable,
+    ContextManager,
+    Dict,
+    Iterable,
+    List,
+    Optional,
+    Tuple,
+    TypeVar,
+    Union,
+)
 
 import torch
 from torch import Tensor
@@ -29,7 +40,10 @@ from lightning.fabric.plugins.precision import Precision
 from lightning.fabric.strategies.launchers.launcher import _Launcher
 from lightning.fabric.strategies.registry import _StrategyRegistry
 from lightning.fabric.utilities.apply_func import move_data_to_device
-from lightning.fabric.utilities.imports import _TORCH_GREATER_EQUAL_1_13, _TORCH_GREATER_EQUAL_2_0
+from lightning.fabric.utilities.imports import (
+    _TORCH_GREATER_EQUAL_1_13,
+    _TORCH_GREATER_EQUAL_2_0,
+)
 from lightning.fabric.utilities.init import _EmptyInit
 from lightning.fabric.utilities.types import _PATH, Optimizable, ReduceOp, _Stateful
 

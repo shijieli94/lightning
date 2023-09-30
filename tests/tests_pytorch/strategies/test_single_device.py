@@ -16,14 +16,14 @@ from unittest.mock import MagicMock, Mock
 
 import pytest
 import torch
+from tests_pytorch.helpers.dataloaders import CustomNotImplementedErrorDataloader
+from tests_pytorch.helpers.runif import RunIf
+from torch.utils.data import DataLoader
+
 from lightning.pytorch import Trainer
 from lightning.pytorch.core.optimizer import LightningOptimizer
 from lightning.pytorch.demos.boring_classes import BoringModel, RandomDataset
 from lightning.pytorch.strategies import SingleDeviceStrategy
-from torch.utils.data import DataLoader
-
-from tests_pytorch.helpers.dataloaders import CustomNotImplementedErrorDataloader
-from tests_pytorch.helpers.runif import RunIf
 
 
 def test_single_cpu():

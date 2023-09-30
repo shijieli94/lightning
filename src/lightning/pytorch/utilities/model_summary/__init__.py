@@ -19,4 +19,6 @@ from lightning.pytorch.utilities.model_summary.model_summary import (  # noqa: F
     parse_batch_shape,
     summarize,
 )
-from lightning.pytorch.utilities.model_summary.model_summary_deepspeed import DeepSpeedSummary  # noqa: F401
+from lightning.pytorch.utilities.model_summary.model_summary_deepspeed import (  # noqa: F401
+    DeepSpeedSummary,
+)

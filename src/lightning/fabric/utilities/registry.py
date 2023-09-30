@@ -18,7 +18,10 @@ from typing import Any, List, Type, Union
 
 from lightning_utilities import is_overridden
 
-from lightning.fabric.utilities.imports import _PYTHON_GREATER_EQUAL_3_8_0, _PYTHON_GREATER_EQUAL_3_10_0
+from lightning.fabric.utilities.imports import (
+    _PYTHON_GREATER_EQUAL_3_8_0,
+    _PYTHON_GREATER_EQUAL_3_10_0,
+)
 
 _log = logging.getLogger(__name__)
 

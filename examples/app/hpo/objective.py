@@ -5,10 +5,11 @@ from typing import Optional
 
 import pandas as pd
 import torch
-from lightning.app import CloudCompute
-from lightning.app.components import TracerPythonScript
 from optuna.distributions import CategoricalDistribution, LogUniformDistribution
 from torchmetrics import Accuracy
+
+from lightning.app import CloudCompute
+from lightning.app.components import TracerPythonScript
 
 
 class ObjectiveWork(TracerPythonScript):

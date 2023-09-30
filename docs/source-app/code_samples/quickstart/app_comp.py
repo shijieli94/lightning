@@ -1,4 +1,4 @@
-from lightning.app import LightningFlow, LightningApp
+from lightning.app import LightningApp, LightningFlow
 from lightning.app.testing import EmptyFlow, EmptyWork
 
 

@@ -16,7 +16,11 @@ import os
 import socket
 from typing import Optional
 
-from lightning_cloud.openapi import AppinstancesIdBody, Externalv1LightningappInstance, V1NetworkConfig
+from lightning_cloud.openapi import (
+    AppinstancesIdBody,
+    Externalv1LightningappInstance,
+    V1NetworkConfig,
+)
 
 from lightning.app.utilities.network import LightningClient, find_free_network_port
 

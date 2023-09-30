@@ -25,7 +25,11 @@ from lightning_utilities.core.imports import RequirementCache
 from torch import Tensor
 
 import lightning.pytorch as pl
-from lightning.fabric.utilities.logger import _add_prefix, _convert_params, _sanitize_callable_params
+from lightning.fabric.utilities.logger import (
+    _add_prefix,
+    _convert_params,
+    _sanitize_callable_params,
+)
 from lightning.pytorch.callbacks import Checkpoint
 from lightning.pytorch.loggers.logger import Logger, rank_zero_experiment
 from lightning.pytorch.utilities.model_summary import ModelSummary

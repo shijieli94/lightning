@@ -2,6 +2,7 @@ import sys
 from unittest.mock import MagicMock
 
 import pytest
+
 from lightning.app.cli.connect import data
 
 
@@ -27,7 +28,12 @@ def test_connect_data_no_project(monkeypatch):
 
 @pytest.mark.skipif(sys.platform == "win32", reason="lightning connect data isn't supported on windows")
 def test_connect_data(monkeypatch):
-    from lightning_cloud.openapi import Create, V1AwsDataConnection, V1ListMembershipsResponse, V1Membership
+    from lightning_cloud.openapi import (
+        Create,
+        V1AwsDataConnection,
+        V1ListMembershipsResponse,
+        V1Membership,
+    )
 
     client = MagicMock()
     client.projects_service_list_memberships.return_value = V1ListMembershipsResponse(

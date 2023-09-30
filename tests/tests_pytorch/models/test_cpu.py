@@ -14,16 +14,16 @@
 import os
 from unittest import mock
 
-import torch
-from lightning.pytorch import Trainer, seed_everything
-from lightning.pytorch.callbacks import Callback, EarlyStopping, ModelCheckpoint
-from lightning.pytorch.demos.boring_classes import BoringModel
-
 import tests_pytorch.helpers.pipelines as tpipes
 import tests_pytorch.helpers.utils as tutils
+import torch
 from tests_pytorch.helpers.datamodules import ClassifDataModule
 from tests_pytorch.helpers.runif import RunIf
 from tests_pytorch.helpers.simple_models import ClassificationModel
+
+from lightning.pytorch import Trainer, seed_everything
+from lightning.pytorch.callbacks import Callback, EarlyStopping, ModelCheckpoint
+from lightning.pytorch.demos.boring_classes import BoringModel
 
 
 @mock.patch("lightning.fabric.plugins.environments.slurm.SLURMEnvironment.detect", return_value=True)

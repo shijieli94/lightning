@@ -18,17 +18,19 @@ from unittest import mock
 
 import pytest
 import torch
-from lightning.fabric import Fabric
-from lightning.fabric.strategies import XLAFSDPStrategy
-from torch.utils.data import DataLoader
-
 from tests_fabric.helpers.models import RandomDataset
 from tests_fabric.helpers.runif import RunIf
+from torch.utils.data import DataLoader
+
+from lightning.fabric import Fabric
+from lightning.fabric.strategies import XLAFSDPStrategy
 
 
 def _xla_fsdp_rewrap_warning(fabric: Fabric):
     """Fabric launch function for test_xla_fsdp_rewrap_warning."""
-    from torch_xla.distributed.fsdp.xla_fully_sharded_data_parallel import XlaFullyShardedDataParallel
+    from torch_xla.distributed.fsdp.xla_fully_sharded_data_parallel import (
+        XlaFullyShardedDataParallel,
+    )
 
     with fabric.init_module():
         model = torch.nn.Sequential(

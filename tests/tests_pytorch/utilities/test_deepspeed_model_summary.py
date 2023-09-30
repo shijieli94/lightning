@@ -12,13 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from tests_pytorch.helpers.runif import RunIf
+
 import lightning.pytorch as pl
 from lightning.pytorch import Callback, Trainer
 from lightning.pytorch.demos.boring_classes import BoringModel
 from lightning.pytorch.strategies import DeepSpeedStrategy
 from lightning.pytorch.utilities.model_summary import DeepSpeedSummary
-
-from tests_pytorch.helpers.runif import RunIf
 
 
 @RunIf(min_cuda_gpus=2, deepspeed=True, standalone=True)

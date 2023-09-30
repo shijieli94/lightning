@@ -1,14 +1,14 @@
 # app.py
-from lightning.app import LightningWork, LightningApp, CloudCompute
+from lightning.app import CloudCompute, LightningApp, LightningWork
 
 
 class YourComponent(LightningWork):
-   def run(self):
-      print('RUN ANY PYTHON CODE HERE')
+    def run(self):
+        print("RUN ANY PYTHON CODE HERE")
 
 
 # custom accelerators
-compute = CloudCompute('gpu')
+compute = CloudCompute("gpu")
 component = YourComponent(cloud_compute=compute)
 app = LightningApp(component)
 

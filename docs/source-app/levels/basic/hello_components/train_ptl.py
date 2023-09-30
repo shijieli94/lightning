@@ -1,12 +1,11 @@
 # A hello world component
 # app.py
-from lightning.app import LightningWork, LightningApp, CloudCompute
+from lightning.app import CloudCompute, LightningApp, LightningWork
 
 
 class YourComponent(LightningWork):
-   def run(self):
-      print('RUN ANY PYTHON CODE HERE')
-
+    def run(self):
+        print("RUN ANY PYTHON CODE HERE")
 
 
 # run on a cloud machine

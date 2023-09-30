@@ -13,7 +13,9 @@
 # limitations under the License.
 import re
 
-from lightning.fabric.utilities.exceptions import MisconfigurationException  # noqa: F401
+from lightning.fabric.utilities.exceptions import (  # noqa: F401
+    MisconfigurationException,
+)
 
 
 class SIGTERMException(SystemExit):

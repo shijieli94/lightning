@@ -18,12 +18,12 @@ from unittest import mock
 
 import pytest
 import torch
-from lightning.pytorch import Trainer
-from lightning.pytorch.demos.boring_classes import BoringModel, RandomIterableDataset
-from torch.utils.data import DataLoader
-
 from tests_pytorch.conftest import mock_cuda_count
 from tests_pytorch.helpers.runif import RunIf
+from torch.utils.data import DataLoader
+
+from lightning.pytorch import Trainer
+from lightning.pytorch.demos.boring_classes import BoringModel, RandomIterableDataset
 
 
 def test_num_stepping_batches_basic():

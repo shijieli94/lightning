@@ -25,7 +25,13 @@ import uvicorn
 from fastapi import FastAPI
 from uvicorn import run
 
-from lightning.app.components.database.utilities import _create_database, _Delete, _Insert, _SelectAll, _Update
+from lightning.app.components.database.utilities import (
+    _create_database,
+    _Delete,
+    _Insert,
+    _SelectAll,
+    _Update,
+)
 from lightning.app.core.work import LightningWork
 from lightning.app.storage import Drive
 from lightning.app.utilities.app_helpers import Logger

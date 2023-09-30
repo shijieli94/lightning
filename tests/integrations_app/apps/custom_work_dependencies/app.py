@@ -1,6 +1,12 @@
 import os
 
-from lightning.app import BuildConfig, CloudCompute, LightningApp, LightningFlow, LightningWork
+from lightning.app import (
+    BuildConfig,
+    CloudCompute,
+    LightningApp,
+    LightningFlow,
+    LightningWork,
+)
 
 
 class CustomBuildConfig(BuildConfig):

@@ -44,7 +44,9 @@ from lightning.fabric.accelerators import Accelerator
 from lightning.fabric.plugins import CheckpointIO, ClusterEnvironment, Precision
 from lightning.fabric.plugins.collectives.torch_collective import default_pg_timeout
 from lightning.fabric.plugins.precision.fsdp import FSDPPrecision
-from lightning.fabric.strategies.launchers.subprocess_script import _SubprocessScriptLauncher
+from lightning.fabric.strategies.launchers.subprocess_script import (
+    _SubprocessScriptLauncher,
+)
 from lightning.fabric.strategies.parallel import ParallelStrategy
 from lightning.fabric.strategies.registry import _StrategyRegistry
 from lightning.fabric.strategies.strategy import (
@@ -69,13 +71,25 @@ from lightning.fabric.utilities.imports import (
     _TORCH_GREATER_EQUAL_2_2,
 )
 from lightning.fabric.utilities.init import _EmptyInit
-from lightning.fabric.utilities.load import _lazy_load, _materialize_tensors, _move_state_into
-from lightning.fabric.utilities.rank_zero import rank_zero_deprecation, rank_zero_only, rank_zero_warn
+from lightning.fabric.utilities.load import (
+    _lazy_load,
+    _materialize_tensors,
+    _move_state_into,
+)
+from lightning.fabric.utilities.rank_zero import (
+    rank_zero_deprecation,
+    rank_zero_only,
+    rank_zero_warn,
+)
 from lightning.fabric.utilities.seed import reset_seed
 from lightning.fabric.utilities.types import _PATH, _Stateful
 
 if TYPE_CHECKING:
-    from torch.distributed.fsdp.fully_sharded_data_parallel import CPUOffload, MixedPrecision, ShardingStrategy
+    from torch.distributed.fsdp.fully_sharded_data_parallel import (
+        CPUOffload,
+        MixedPrecision,
+        ShardingStrategy,
+    )
 
     from lightning.fabric.wrappers import _FabricModule
 
@@ -353,7 +367,9 @@ class FSDPStrategy(ParallelStrategy, _Sharded):
         return stack
 
     def module_sharded_context(self) -> ContextManager:
-        from torch.distributed.fsdp.fully_sharded_data_parallel import FullyShardedDataParallel
+        from torch.distributed.fsdp.fully_sharded_data_parallel import (
+            FullyShardedDataParallel,
+        )
         from torch.distributed.fsdp.wrap import enable_wrap
 
         return enable_wrap(
@@ -397,7 +413,9 @@ class FSDPStrategy(ParallelStrategy, _Sharded):
         error_if_nonfinite: bool = True,
     ) -> Tensor:
         """Clip gradients by norm."""
-        from torch.distributed.fsdp.fully_sharded_data_parallel import FullyShardedDataParallel
+        from torch.distributed.fsdp.fully_sharded_data_parallel import (
+            FullyShardedDataParallel,
+        )
 
         if not isinstance(module, FullyShardedDataParallel):
             # the root must be wrapped
@@ -553,7 +571,9 @@ class FSDPStrategy(ParallelStrategy, _Sharded):
             )
 
         from torch.distributed.checkpoint import FileSystemReader, load_state_dict
-        from torch.distributed.checkpoint.optimizer import load_sharded_optimizer_state_dict
+        from torch.distributed.checkpoint.optimizer import (
+            load_sharded_optimizer_state_dict,
+        )
         from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
         from torch.distributed.fsdp import OptimStateKeyType
 
@@ -742,7 +762,9 @@ def _setup_activation_checkpointing(module: Module, activation_checkpointing_kwa
     if not activation_checkpointing_kwargs:
         return
 
-    from torch.distributed.algorithms._checkpoint.checkpoint_wrapper import CheckpointWrapper
+    from torch.distributed.algorithms._checkpoint.checkpoint_wrapper import (
+        CheckpointWrapper,
+    )
 
     if any(isinstance(mod, CheckpointWrapper) for mod in module.modules()):
         rank_zero_warn(
@@ -766,7 +788,9 @@ class _FSDPBackwardSyncControl(_BackwardSyncControl):
     def no_backward_sync(self, module: Module) -> ContextManager:
         """Blocks gradient synchronization inside the
         :class:`~torch.distributed.fsdp.FullyShardedDataParallel` wrapper."""
-        from torch.distributed.fsdp.fully_sharded_data_parallel import FullyShardedDataParallel
+        from torch.distributed.fsdp.fully_sharded_data_parallel import (
+            FullyShardedDataParallel,
+        )
 
         if not isinstance(module, FullyShardedDataParallel):
             # the root must be wrapped
@@ -810,7 +834,11 @@ def _optimizer_has_flat_params(optimizer: Optimizer) -> bool:
 
 def _get_sharded_state_dict_context(module: Module) -> Generator[None, None, None]:
     from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
-    from torch.distributed.fsdp.api import ShardedOptimStateDictConfig, ShardedStateDictConfig, StateDictType
+    from torch.distributed.fsdp.api import (
+        ShardedOptimStateDictConfig,
+        ShardedStateDictConfig,
+        StateDictType,
+    )
 
     state_dict_config = ShardedStateDictConfig(offload_to_cpu=True)
     optim_state_dict_config = ShardedOptimStateDictConfig(offload_to_cpu=True)
@@ -826,8 +854,9 @@ def _get_sharded_state_dict_context(module: Module) -> Generator[None, None, Non
 def _get_full_state_dict_context(
     module: Module, world_size: int, rank0_only: bool = True
 ) -> Generator[None, None, None]:
-    from torch.distributed.fsdp import FullStateDictConfig, StateDictType
+    from torch.distributed.fsdp import FullStateDictConfig
     from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
+    from torch.distributed.fsdp import StateDictType
 
     # In PyTorch <= 2.0, offload to CPU in combination with `world_size=1` is not possible
     offload_to_cpu = world_size > 1 or _TORCH_GREATER_EQUAL_2_1

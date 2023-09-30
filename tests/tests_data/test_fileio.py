@@ -2,7 +2,14 @@ import os
 from unittest import mock
 
 import pytest
-from lightning.data.fileio import OpenCloudFileObj, is_path, is_url, open_single_file, path_to_url
+
+from lightning.data.fileio import (
+    OpenCloudFileObj,
+    is_path,
+    is_url,
+    open_single_file,
+    path_to_url,
+)
 
 
 @pytest.mark.parametrize(

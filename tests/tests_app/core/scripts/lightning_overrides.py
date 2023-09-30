@@ -1,10 +1,12 @@
-from lightning.app.utilities.imports import _is_pytorch_lightning_available, _is_torch_available
+from lightning.app.utilities.imports import (
+    _is_pytorch_lightning_available,
+    _is_torch_available,
+)
 
 if _is_torch_available():
     from torch.utils.data import Dataset
 
 if _is_pytorch_lightning_available():
-    from lightning.fabric import Fabric
     from pytorch_lightning import LightningDataModule, LightningModule, Trainer
     from pytorch_lightning.accelerators.accelerator import Accelerator
     from pytorch_lightning.callbacks import Callback
@@ -12,6 +14,8 @@ if _is_pytorch_lightning_available():
     from pytorch_lightning.plugins import PrecisionPlugin
     from pytorch_lightning.profilers import Profiler
     from torchmetrics import Metric
+
+    from lightning.fabric import Fabric
 
 
 if __name__ == "__main__":

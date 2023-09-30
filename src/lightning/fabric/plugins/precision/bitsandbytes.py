@@ -17,7 +17,16 @@ import warnings
 from contextlib import ExitStack
 from functools import partial
 from types import ModuleType
-from typing import Any, Callable, ContextManager, Literal, Optional, OrderedDict, Set, Type
+from typing import (
+    Any,
+    Callable,
+    ContextManager,
+    Literal,
+    Optional,
+    OrderedDict,
+    Set,
+    Type,
+)
 
 import torch
 from lightning_utilities import apply_to_collection

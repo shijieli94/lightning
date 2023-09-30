@@ -13,13 +13,31 @@
 # limitations under the License.
 import contextlib
 from collections.abc import Iterable
-from typing import Any, Callable, Dict, Iterator, List, Literal, Optional, Tuple, Type, Union
+from typing import (
+    Any,
+    Callable,
+    Dict,
+    Iterator,
+    List,
+    Literal,
+    Optional,
+    Tuple,
+    Type,
+    Union,
+)
 
-from torch.utils.data.dataloader import _BaseDataLoaderIter, _MultiProcessingDataLoaderIter
+from torch.utils.data.dataloader import (
+    _BaseDataLoaderIter,
+    _MultiProcessingDataLoaderIter,
+)
 from typing_extensions import Self, TypedDict
 
 from lightning.fabric.utilities.data import sized_len
-from lightning.pytorch.utilities._pytree import _map_and_unflatten, _tree_flatten, tree_unflatten
+from lightning.pytorch.utilities._pytree import (
+    _map_and_unflatten,
+    _tree_flatten,
+    tree_unflatten,
+)
 
 _ITERATOR_RETURN = Tuple[Any, int, int]  # batch, batch_idx, dataloader_idx
 

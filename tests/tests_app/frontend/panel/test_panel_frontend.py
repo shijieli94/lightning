@@ -7,6 +7,7 @@ from unittest import mock
 from unittest.mock import Mock
 
 import pytest
+
 from lightning.app import LightningFlow
 from lightning.app.frontend.panel import PanelFrontend, panel_serve_render_fn
 from lightning.app.frontend.panel.panel_frontend import _has_panel_autoreload

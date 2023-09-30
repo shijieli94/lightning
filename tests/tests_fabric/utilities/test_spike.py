@@ -3,8 +3,13 @@ import sys
 
 import pytest
 import torch
+
 from lightning.fabric import Fabric
-from lightning.fabric.utilities.spike import _TORCHMETRICS_GREATER_EQUAL_1_0_0, SpikeDetection, TrainingSpikeException
+from lightning.fabric.utilities.spike import (
+    _TORCHMETRICS_GREATER_EQUAL_1_0_0,
+    SpikeDetection,
+    TrainingSpikeException,
+)
 
 
 def spike_detection_test(fabric, global_rank_spike, spike_value, should_raise):

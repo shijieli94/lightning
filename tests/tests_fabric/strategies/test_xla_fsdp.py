@@ -18,13 +18,16 @@ from unittest.mock import MagicMock, Mock
 import pytest
 import torch.nn
 import torch.nn as nn
+from tests_fabric.helpers.runif import RunIf
+from torch.optim import Adam
+
 from lightning.fabric.accelerators import XLAAccelerator
 from lightning.fabric.plugins import XLAPrecision
 from lightning.fabric.strategies import XLAFSDPStrategy
-from lightning.fabric.strategies.xla_fsdp import _activation_checkpointing_auto_wrapper, _XLAFSDPBackwardSyncControl
-from torch.optim import Adam
-
-from tests_fabric.helpers.runif import RunIf
+from lightning.fabric.strategies.xla_fsdp import (
+    _activation_checkpointing_auto_wrapper,
+    _XLAFSDPBackwardSyncControl,
+)
 
 
 @RunIf(min_torch="2.0", tpu=True)
@@ -82,7 +85,9 @@ def test_xla_fsdp_grad_clipping_value_error():
 def test_xla_fsdp_activation_checkpointing_setup():
     """Test XLAFSDP activation checkpointing setup."""
     from torch_xla.distributed.fsdp import checkpoint_module
-    from torch_xla.distributed.fsdp.xla_fully_sharded_data_parallel import XlaFullyShardedDataParallel
+    from torch_xla.distributed.fsdp.xla_fully_sharded_data_parallel import (
+        XlaFullyShardedDataParallel,
+    )
 
     auto_wrapper_callable = lambda m, *args, **kwargs: XlaFullyShardedDataParallel(
         checkpoint_module(m), *args, **kwargs

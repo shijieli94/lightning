@@ -6,6 +6,7 @@ from pathlib import Path
 from unittest import mock
 
 import pytest
+
 from lightning.app.source_code import LocalSourceCodeDir
 
 

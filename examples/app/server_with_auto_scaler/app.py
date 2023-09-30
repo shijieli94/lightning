@@ -3,8 +3,9 @@ from typing import List
 
 import torch
 import torchvision
-from lightning.app import CloudCompute, LightningApp
 from pydantic import BaseModel
+
+from lightning.app import CloudCompute, LightningApp
 
 
 class BatchRequestModel(BaseModel):

@@ -9,8 +9,9 @@ from unittest import mock
 import pytest
 from fastapi import status
 from fastapi.testclient import TestClient
-from lightning.app.plugin.plugin import _Run, _start_plugin_server
 from lightning_cloud.openapi import Externalv1LightningappInstance
+
+from lightning.app.plugin.plugin import _Run, _start_plugin_server
 
 
 @pytest.fixture()

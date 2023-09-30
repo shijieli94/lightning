@@ -20,6 +20,12 @@ from unittest import mock
 
 import pytest
 import torch
+from lightning_utilities.test.warning import no_warning_call
+from tests_pytorch.helpers.datamodules import ClassifDataModule
+from tests_pytorch.helpers.runif import RunIf
+from tests_pytorch.helpers.simple_models import ClassificationModel
+from tests_pytorch.helpers.utils import getattr_recursive
+
 from lightning.pytorch import Trainer, seed_everything
 from lightning.pytorch.callbacks.lr_finder import LearningRateFinder
 from lightning.pytorch.demos.boring_classes import BoringModel
@@ -27,12 +33,6 @@ from lightning.pytorch.tuner.lr_finder import _LRFinder
 from lightning.pytorch.tuner.tuning import Tuner
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
 from lightning.pytorch.utilities.types import STEP_OUTPUT
-from lightning_utilities.test.warning import no_warning_call
-
-from tests_pytorch.helpers.datamodules import ClassifDataModule
-from tests_pytorch.helpers.runif import RunIf
-from tests_pytorch.helpers.simple_models import ClassificationModel
-from tests_pytorch.helpers.utils import getattr_recursive
 
 
 def test_error_with_multiple_optimizers(tmpdir):

@@ -23,7 +23,10 @@ from lightning.pytorch.loops import _Loop
 from lightning.pytorch.loops.fetchers import _DataFetcher
 from lightning.pytorch.loops.progress import _Progress
 from lightning.pytorch.loops.training_epoch_loop import _TrainingEpochLoop
-from lightning.pytorch.loops.utilities import _is_max_limit_reached, _select_data_fetcher
+from lightning.pytorch.loops.utilities import (
+    _is_max_limit_reached,
+    _select_data_fetcher,
+)
 from lightning.pytorch.trainer import call
 from lightning.pytorch.trainer.connectors.data_connector import (
     _check_dataloader_iterable,
@@ -33,13 +36,22 @@ from lightning.pytorch.trainer.connectors.data_connector import (
     _request_dataloader,
     _resolve_overfit_batches,
 )
-from lightning.pytorch.trainer.connectors.logger_connector.result import _ResultCollection
+from lightning.pytorch.trainer.connectors.logger_connector.result import (
+    _ResultCollection,
+)
 from lightning.pytorch.trainer.states import RunningStage, TrainerFn
 from lightning.pytorch.utilities.combined_loader import _SUPPORTED_MODES, CombinedLoader
 from lightning.pytorch.utilities.data import has_len_all_ranks
-from lightning.pytorch.utilities.exceptions import MisconfigurationException, SIGTERMException
+from lightning.pytorch.utilities.exceptions import (
+    MisconfigurationException,
+    SIGTERMException,
+)
 from lightning.pytorch.utilities.model_helpers import is_overridden
-from lightning.pytorch.utilities.rank_zero import rank_zero_debug, rank_zero_info, rank_zero_warn
+from lightning.pytorch.utilities.rank_zero import (
+    rank_zero_debug,
+    rank_zero_info,
+    rank_zero_warn,
+)
 
 log = logging.getLogger(__name__)
 

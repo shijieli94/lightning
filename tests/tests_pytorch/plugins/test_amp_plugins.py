@@ -18,12 +18,12 @@ from unittest import mock
 
 import pytest
 import torch
+from tests_pytorch.helpers.runif import RunIf
+from torch import Tensor
+
 from lightning.pytorch import Trainer
 from lightning.pytorch.demos.boring_classes import BoringModel
 from lightning.pytorch.plugins import MixedPrecisionPlugin
-from torch import Tensor
-
-from tests_pytorch.helpers.runif import RunIf
 
 
 class MyAMP(MixedPrecisionPlugin):

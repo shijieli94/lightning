@@ -14,13 +14,13 @@
 import os
 from unittest import mock
 
-import lightning.fabric
 import pytest
 import torch
+from tests_fabric.helpers.runif import RunIf
+
+import lightning.fabric
 from lightning.fabric.accelerators.xla import _XLA_GREATER_EQUAL_2_1, _using_pjrt
 from lightning.fabric.plugins.environments import XLAEnvironment
-
-from tests_fabric.helpers.runif import RunIf
 
 
 @RunIf(tpu=True)

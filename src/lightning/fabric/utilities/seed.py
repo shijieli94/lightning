@@ -8,7 +8,12 @@ from typing import Any, Dict, Optional
 import numpy as np
 import torch
 
-from lightning.fabric.utilities.rank_zero import _get_rank, rank_prefixed_message, rank_zero_only, rank_zero_warn
+from lightning.fabric.utilities.rank_zero import (
+    _get_rank,
+    rank_prefixed_message,
+    rank_zero_only,
+    rank_zero_warn,
+)
 
 log = logging.getLogger(__name__)
 

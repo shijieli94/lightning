@@ -21,7 +21,10 @@ from torch.nn import Module
 from typing_extensions import get_args
 
 from lightning.fabric.plugins.precision.precision import Precision
-from lightning.fabric.plugins.precision.utils import _convert_fp_tensor, _DtypeContextManager
+from lightning.fabric.plugins.precision.utils import (
+    _convert_fp_tensor,
+    _DtypeContextManager,
+)
 from lightning.fabric.utilities.types import Steppable
 
 if TYPE_CHECKING:

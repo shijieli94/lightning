@@ -6,12 +6,8 @@ from functools import partial
 from unittest import mock
 from unittest.mock import ANY, MagicMock, call
 
-import lightning.app.runners.backends.cloud as cloud_backend
 import pytest
 from click.testing import CliRunner
-from lightning.app.cli.lightning_cli import run_app
-from lightning.app.runners import cloud
-from lightning.app.runners.cloud import CloudRuntime
 from lightning_cloud.openapi import (
     V1CloudSpace,
     V1ListCloudSpacesResponse,
@@ -20,8 +16,12 @@ from lightning_cloud.openapi import (
     V1Membership,
 )
 from lightning_cloud.openapi.rest import ApiException
-
 from tests_app import _PROJECT_ROOT
+
+import lightning.app.runners.backends.cloud as cloud_backend
+from lightning.app.cli.lightning_cli import run_app
+from lightning.app.runners import cloud
+from lightning.app.runners.cloud import CloudRuntime
 
 _FILE_PATH = os.path.join(_PROJECT_ROOT, "tests", "tests_app", "core", "scripts", "app_metadata.py")
 

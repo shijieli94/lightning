@@ -18,22 +18,29 @@ from unittest.mock import Mock
 
 import pytest
 import torch
+from lightning_utilities.core.imports import compare_version
+from tests_pytorch.models.test_hooks import get_members
+from torch.utils.data import DataLoader
+from torchmetrics import Accuracy
+from torchmetrics import AveragePrecision as AvgPre
+from torchmetrics import MeanAbsoluteError, MeanSquaredError, MetricCollection
+
 from lightning.pytorch import LightningModule
 from lightning.pytorch.callbacks.callback import Callback
 from lightning.pytorch.demos.boring_classes import BoringModel, RandomDataset
 from lightning.pytorch.loggers import CSVLogger
 from lightning.pytorch.trainer import Trainer
-from lightning.pytorch.trainer.connectors.logger_connector.fx_validator import _FxValidator
-from lightning.pytorch.trainer.connectors.logger_connector.result import _ResultCollection
+from lightning.pytorch.trainer.connectors.logger_connector.fx_validator import (
+    _FxValidator,
+)
+from lightning.pytorch.trainer.connectors.logger_connector.result import (
+    _ResultCollection,
+)
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
 from lightning.pytorch.utilities.imports import _TORCHMETRICS_GREATER_EQUAL_0_9_1
-from lightning.pytorch.utilities.imports import _TORCHMETRICS_GREATER_EQUAL_0_11 as _TM_GE_0_11
-from lightning_utilities.core.imports import compare_version
-from torch.utils.data import DataLoader
-from torchmetrics import Accuracy, MeanAbsoluteError, MeanSquaredError, MetricCollection
-from torchmetrics import AveragePrecision as AvgPre
-
-from tests_pytorch.models.test_hooks import get_members
+from lightning.pytorch.utilities.imports import (
+    _TORCHMETRICS_GREATER_EQUAL_0_11 as _TM_GE_0_11,
+)
 
 
 def test_fx_validator():
@@ -427,7 +434,10 @@ def test_metriccollection_compute_groups(tmpdir, compute_groups):
         def __init__(self):
             super().__init__()
             if compare_version("torchmetrics", operator.ge, "0.10.0"):
-                from torchmetrics.classification import MulticlassAccuracy, MulticlassPrecision
+                from torchmetrics.classification import (
+                    MulticlassAccuracy,
+                    MulticlassPrecision,
+                )
 
                 metrics = [
                     MulticlassAccuracy(num_classes=10, average="micro"),

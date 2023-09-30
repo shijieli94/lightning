@@ -16,6 +16,7 @@ from typing import Dict, Generic, Iterator, Mapping, TypeVar
 
 import pytest
 import torch
+
 from lightning.pytorch import Trainer
 from lightning.pytorch.demos.boring_classes import BoringModel
 from lightning.pytorch.loops.optimization.automatic import ClosureResult

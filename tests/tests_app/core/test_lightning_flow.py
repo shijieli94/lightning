@@ -8,9 +8,10 @@ from functools import partial
 from time import time
 from unittest.mock import ANY
 
-import lightning.app
 import pytest
 from deepdiff import DeepDiff, Delta
+
+import lightning.app
 from lightning.app import CloudCompute, LightningApp
 from lightning.app.core.flow import LightningFlow, _RootFlow
 from lightning.app.core.work import LightningWork

@@ -16,6 +16,7 @@ from typing import Any, Mapping
 
 import pytest
 import torch
+
 from lightning.pytorch import Trainer
 from lightning.pytorch.demos.boring_classes import BoringModel
 from lightning.pytorch.strategies import SingleDeviceStrategy

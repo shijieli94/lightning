@@ -21,7 +21,11 @@ import torch
 
 import lightning.pytorch as pl
 from lightning.fabric.accelerators import _AcceleratorRegistry
-from lightning.fabric.accelerators.cuda import _check_cuda_matmul_precision, _clear_cuda_memory, num_cuda_devices
+from lightning.fabric.accelerators.cuda import (
+    _check_cuda_matmul_precision,
+    _clear_cuda_memory,
+    num_cuda_devices,
+)
 from lightning.fabric.utilities.device_parser import _parse_gpu_ids
 from lightning.fabric.utilities.types import _DEVICE
 from lightning.pytorch.accelerators.accelerator import Accelerator

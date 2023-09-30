@@ -1,13 +1,13 @@
 # app.py
-from lightning.app import LightningWork, LightningApp, CloudCompute
+from lightning.app import CloudCompute, LightningApp, LightningWork
 
 
 class YourComponent(LightningWork):
-   def run(self):
-      print('RUN ANY PYTHON CODE HERE')
+    def run(self):
+        print("RUN ANY PYTHON CODE HERE")
 
 
 # if the machine hasn't started after 60 seconds, cancel the work
-compute = CloudCompute('gpu', wait_timeout=60)
+compute = CloudCompute("gpu", wait_timeout=60)
 component = YourComponent(cloud_compute=compute)
 app = LightningApp(component)

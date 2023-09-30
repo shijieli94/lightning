@@ -20,6 +20,10 @@ from unittest.mock import Mock, PropertyMock, call
 
 import pytest
 import torch
+from tests_pytorch.helpers.datamodules import ClassifDataModule
+from tests_pytorch.helpers.runif import RunIf
+from tests_pytorch.helpers.simple_models import ClassificationModel
+
 from lightning.pytorch import LightningDataModule, Trainer, seed_everything
 from lightning.pytorch.callbacks import ModelCheckpoint
 from lightning.pytorch.demos.boring_classes import BoringDataModule, BoringModel
@@ -27,10 +31,6 @@ from lightning.pytorch.profilers.simple import SimpleProfiler
 from lightning.pytorch.trainer.states import TrainerFn
 from lightning.pytorch.utilities import _OMEGACONF_AVAILABLE, AttributeDict
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
-
-from tests_pytorch.helpers.datamodules import ClassifDataModule
-from tests_pytorch.helpers.runif import RunIf
-from tests_pytorch.helpers.simple_models import ClassificationModel
 
 if _OMEGACONF_AVAILABLE:
     from omegaconf import OmegaConf

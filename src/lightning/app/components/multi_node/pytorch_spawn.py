@@ -18,7 +18,12 @@ from lightning.app.components.multi_node.base import MultiNode
 from lightning.app.core.queues import MultiProcessQueue
 from lightning.app.core.work import LightningWork
 from lightning.app.utilities.packaging.cloud_compute import CloudCompute
-from lightning.app.utilities.proxies import WorkRunExecutor, WorkStateObserver, _proxy_setattr, unwrap
+from lightning.app.utilities.proxies import (
+    WorkRunExecutor,
+    WorkStateObserver,
+    _proxy_setattr,
+    unwrap,
+)
 
 
 @runtime_checkable

@@ -1,13 +1,13 @@
 import pytest
 import torch
+from tests_pytorch.helpers.runif import RunIf
+
 from lightning.pytorch.plugins import (
     DeepSpeedPrecisionPlugin,
     DoublePrecisionPlugin,
     FSDPPrecisionPlugin,
     HalfPrecisionPlugin,
 )
-
-from tests_pytorch.helpers.runif import RunIf
 
 
 @pytest.mark.parametrize(

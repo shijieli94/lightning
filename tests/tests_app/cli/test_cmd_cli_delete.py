@@ -2,8 +2,9 @@ import sys
 from unittest import mock
 
 import pytest
-from lightning.app.cli.lightning_cli_delete import _find_selected_app_instance_id
 from lightning_cloud.openapi import Externalv1LightningappInstance
+
+from lightning.app.cli.lightning_cli_delete import _find_selected_app_instance_id
 
 
 @pytest.mark.skipif(sys.platform == "win32", reason="currently not supported for windows.")

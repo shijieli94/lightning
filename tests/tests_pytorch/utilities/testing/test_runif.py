@@ -1,5 +1,4 @@
 import pytest
-
 from tests_pytorch.helpers.runif import RunIf
 
 

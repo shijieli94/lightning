@@ -2,6 +2,7 @@ import os
 from unittest import mock
 
 import pytest
+
 from lightning.app import __package_name__
 from lightning.app.utilities.imports import _get_extras, requires
 

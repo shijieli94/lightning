@@ -20,11 +20,11 @@ from textwrap import dedent
 from unittest import mock
 
 import pytest
-from lightning.pytorch.utilities import _OMEGACONF_AVAILABLE
 from lightning_utilities.core.imports import RequirementCache, compare_version
+from tests_pytorch.helpers.runif import RunIf
 from torch.distributed import is_available
 
-from tests_pytorch.helpers.runif import RunIf
+from lightning.pytorch.utilities import _OMEGACONF_AVAILABLE
 
 
 def test_imports():

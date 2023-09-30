@@ -13,12 +13,29 @@
 # limitations under the License.
 import inspect
 from dataclasses import fields
-from typing import Any, Dict, Generator, Iterable, Mapping, Optional, Sized, Tuple, Union
+from typing import (
+    Any,
+    Dict,
+    Generator,
+    Iterable,
+    Mapping,
+    Optional,
+    Sized,
+    Tuple,
+    Union,
+)
 
 import torch
 from lightning_utilities.core.apply_func import is_dataclass_instance
 from torch import Tensor
-from torch.utils.data import BatchSampler, DataLoader, IterableDataset, RandomSampler, Sampler, SequentialSampler
+from torch.utils.data import (
+    BatchSampler,
+    DataLoader,
+    IterableDataset,
+    RandomSampler,
+    Sampler,
+    SequentialSampler,
+)
 from typing_extensions import TypeGuard
 
 import lightning.pytorch as pl

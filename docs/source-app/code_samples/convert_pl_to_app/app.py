@@ -1,4 +1,4 @@
-from lightning.app import LightningFlow, LightningApp, CloudCompute
+from lightning.app import CloudCompute, LightningApp, LightningFlow
 from lightning.app.components import TracerPythonScript
 
 

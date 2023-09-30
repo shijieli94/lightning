@@ -27,8 +27,23 @@ from unittest.mock import ANY
 import pytest
 import torch
 import yaml
+from lightning_utilities import compare_version
+from lightning_utilities.test.warning import no_warning_call
+from tensorboard.backend.event_processing import event_accumulator
+from tensorboard.plugins.hparams.plugin_data_pb2 import HParamsPluginData
+from tests_pytorch.helpers.runif import RunIf
+from torch.optim import SGD
+from torch.optim.lr_scheduler import ReduceLROnPlateau, StepLR
+
 from lightning.fabric.plugins.environments import SLURMEnvironment
-from lightning.pytorch import Callback, LightningDataModule, LightningModule, Trainer, __version__, seed_everything
+from lightning.pytorch import (
+    Callback,
+    LightningDataModule,
+    LightningModule,
+    Trainer,
+    __version__,
+    seed_everything,
+)
 from lightning.pytorch.callbacks import LearningRateMonitor, ModelCheckpoint
 from lightning.pytorch.cli import (
     _JSONARGPARSE_SIGNATURES_AVAILABLE,
@@ -49,14 +64,6 @@ from lightning.pytorch.strategies import DDPStrategy
 from lightning.pytorch.trainer.states import TrainerFn
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
 from lightning.pytorch.utilities.imports import _TORCHVISION_AVAILABLE
-from lightning_utilities import compare_version
-from lightning_utilities.test.warning import no_warning_call
-from tensorboard.backend.event_processing import event_accumulator
-from tensorboard.plugins.hparams.plugin_data_pb2 import HParamsPluginData
-from torch.optim import SGD
-from torch.optim.lr_scheduler import ReduceLROnPlateau, StepLR
-
-from tests_pytorch.helpers.runif import RunIf
 
 if _JSONARGPARSE_SIGNATURES_AVAILABLE:
     from jsonargparse import Namespace, lazy_instance
@@ -698,7 +705,9 @@ def test_cli_no_need_configure_optimizers(cleandir):
 
         # did not define `configure_optimizers`
 
-    from lightning.pytorch.trainer.configuration_validator import __verify_train_val_loop_configuration
+    from lightning.pytorch.trainer.configuration_validator import (
+        __verify_train_val_loop_configuration,
+    )
 
     with mock.patch("sys.argv", ["any.py", "fit", "--optimizer=Adam"]), mock.patch(
         "lightning.pytorch.Trainer._run_stage"

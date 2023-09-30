@@ -14,9 +14,9 @@
 import pytest
 import torch
 import torch.nn as nn
-from lightning.fabric import Fabric
-
 from tests_fabric.helpers.runif import RunIf
+
+from lightning.fabric import Fabric
 
 
 class SimpleModel(nn.Module):

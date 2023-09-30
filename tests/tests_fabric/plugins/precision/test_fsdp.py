@@ -16,10 +16,10 @@ from unittest.mock import Mock
 
 import pytest
 import torch
+from tests_fabric.helpers.runif import RunIf
+
 from lightning.fabric.plugins import FSDPPrecision
 from lightning.fabric.plugins.precision.utils import _DtypeContextManager
-
-from tests_fabric.helpers.runif import RunIf
 
 
 @mock.patch("lightning.fabric.plugins.precision.fsdp._TORCH_GREATER_EQUAL_1_12", False)

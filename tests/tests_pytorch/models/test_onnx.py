@@ -17,14 +17,14 @@ from unittest.mock import patch
 import numpy as np
 import onnxruntime
 import pytest
+import tests_pytorch.helpers.pipelines as tpipes
 import torch
+from tests_pytorch.helpers.runif import RunIf
+from tests_pytorch.utilities.test_model_summary import UnorderedModel
+
 from lightning.fabric.utilities.imports import _TORCH_GREATER_EQUAL_1_12
 from lightning.pytorch import Trainer
 from lightning.pytorch.demos.boring_classes import BoringModel
-
-import tests_pytorch.helpers.pipelines as tpipes
-from tests_pytorch.helpers.runif import RunIf
-from tests_pytorch.utilities.test_model_summary import UnorderedModel
 
 
 @RunIf(onnx=True)

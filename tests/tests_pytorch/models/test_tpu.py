@@ -16,7 +16,11 @@ from functools import partial
 from unittest import mock
 
 import pytest
+import tests_pytorch.helpers.pipelines as tpipes
 import torch
+from tests_pytorch.helpers.runif import RunIf
+from torch.utils.data import DataLoader
+
 from lightning.fabric.accelerators.xla import _using_pjrt
 from lightning.pytorch import Trainer
 from lightning.pytorch.accelerators import XLAAccelerator
@@ -26,10 +30,6 @@ from lightning.pytorch.strategies import XLAStrategy
 from lightning.pytorch.strategies.launchers.xla import _XLALauncher
 from lightning.pytorch.trainer.connectors.logger_connector.result import _Sync
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
-from torch.utils.data import DataLoader
-
-import tests_pytorch.helpers.pipelines as tpipes
-from tests_pytorch.helpers.runif import RunIf
 
 
 class SerialLoaderBoringModel(BoringModel):

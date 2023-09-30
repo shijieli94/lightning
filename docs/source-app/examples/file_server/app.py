@@ -5,18 +5,12 @@ import uuid
 import zipfile
 from pathlib import Path
 
-from lightning.app import LightningWork, LightningApp
+from lightning.app import LightningApp, LightningWork
 from lightning.app.storage import Drive
 
 
 class FileServer(LightningWork):
-    def __init__(
-        self,
-        drive: Drive,
-        base_dir: str = "file_server",
-        chunk_size=10240,
-        **kwargs
-    ):
+    def __init__(self, drive: Drive, base_dir: str = "file_server", chunk_size=10240, **kwargs):
         """This component uploads, downloads files to your application.
 
         Arguments:
@@ -55,9 +49,7 @@ class FileServer(LightningWork):
         filename = file.filename
         uploaded_file = self.get_random_filename()
         meta_file = uploaded_file + ".meta"
-        self.uploaded_files[filename] = {
-            "progress": (0, None), "done": False
-        }
+        self.uploaded_files[filename] = {"progress": (0, None), "done": False}
 
         # 2: Create a stream and write bytes of
         # the file to the disk under `uploaded_file` path.
@@ -173,10 +165,7 @@ class TestFileServer(LightningWork):
             with open("test.txt", "w") as f:
                 f.write("Some text.")
 
-            response = requests.post(
-                file_server_url + "/upload_file/",
-                files={'file': open("test.txt", 'rb')}
-            )
+            response = requests.post(file_server_url + "/upload_file/", files={"file": open("test.txt", "rb")})
             assert response.status_code == 200
         else:
             response = requests.get(file_server_url)

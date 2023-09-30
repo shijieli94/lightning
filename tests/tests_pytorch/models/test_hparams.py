@@ -24,19 +24,27 @@ import cloudpickle
 import pytest
 import torch
 from fsspec.implementations.local import LocalFileSystem
+from lightning_utilities.core.imports import RequirementCache
+from lightning_utilities.test.warning import no_warning_call
+from tests_pytorch.helpers.runif import RunIf
+from torch.utils.data import DataLoader
+
 from lightning.pytorch import LightningModule, Trainer
 from lightning.pytorch.callbacks import ModelCheckpoint
 from lightning.pytorch.core.datamodule import LightningDataModule
 from lightning.pytorch.core.mixins import HyperparametersMixin
 from lightning.pytorch.core.saving import load_hparams_from_yaml, save_hparams_to_yaml
-from lightning.pytorch.demos.boring_classes import BoringDataModule, BoringModel, RandomDataset
+from lightning.pytorch.demos.boring_classes import (
+    BoringDataModule,
+    BoringModel,
+    RandomDataset,
+)
 from lightning.pytorch.loggers import CSVLogger, TensorBoardLogger
-from lightning.pytorch.utilities import _OMEGACONF_AVAILABLE, AttributeDict, is_picklable
-from lightning_utilities.core.imports import RequirementCache
-from lightning_utilities.test.warning import no_warning_call
-from torch.utils.data import DataLoader
-
-from tests_pytorch.helpers.runif import RunIf
+from lightning.pytorch.utilities import (
+    _OMEGACONF_AVAILABLE,
+    AttributeDict,
+    is_picklable,
+)
 
 if _OMEGACONF_AVAILABLE:
     from omegaconf import Container, OmegaConf

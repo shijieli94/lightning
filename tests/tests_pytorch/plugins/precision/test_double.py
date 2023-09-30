@@ -16,12 +16,12 @@ from unittest.mock import MagicMock
 
 import pytest
 import torch
+from tests_pytorch.helpers.runif import RunIf
+from torch.utils.data import DataLoader, Dataset
+
 from lightning.pytorch import Trainer
 from lightning.pytorch.demos.boring_classes import BoringModel, RandomDataset
 from lightning.pytorch.plugins.precision.double import DoublePrecisionPlugin
-from torch.utils.data import DataLoader, Dataset
-
-from tests_pytorch.helpers.runif import RunIf
 
 
 class RandomFloatIntDataset(Dataset):

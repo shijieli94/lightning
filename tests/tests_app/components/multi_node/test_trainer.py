@@ -5,9 +5,10 @@ from unittest import mock
 
 import pytest
 import pytorch_lightning as pl
-from lightning.app.components.multi_node.trainer import _LightningTrainerRunExecutor
 from lightning_utilities.core.imports import module_available
 from lightning_utilities.test.warning import no_warning_call
+
+from lightning.app.components.multi_node.trainer import _LightningTrainerRunExecutor
 
 
 def dummy_callable(**kwargs):

@@ -5,6 +5,7 @@ from unittest.mock import MagicMock
 import click
 import psutil
 import pytest
+
 from lightning.app import _PROJECT_ROOT
 from lightning.app.cli.connect.app import (
     _list_app_commands,

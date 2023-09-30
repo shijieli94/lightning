@@ -1,5 +1,5 @@
 # app.py
-from lightning.app import LightningWork, LightningFlow, LightningApp
+from lightning.app import LightningApp, LightningFlow, LightningWork
 
 
 class EmbeddingProcessor(LightningWork):
@@ -8,15 +8,17 @@ class EmbeddingProcessor(LightningWork):
         self.embeddings = None
 
     def run(self):
-        print('PROCESSOR: Generating embeddings...')
+        print("PROCESSOR: Generating embeddings...")
         fake_embeddings = [[1, 2, 3], [2, 3, 4]]
         self.embeddings = storage.Payload(fake_embeddings)
 
+
 class EmbeddingServer(LightningWork):
     def run(self, payload):
-        print('SERVER: Using embeddings from processor', payload)
+        print("SERVER: Using embeddings from processor", payload)
         embeddings = payload.value
-        print('serving embeddings sent from EmbeddingProcessor: ', embeddings)
+        print("serving embeddings sent from EmbeddingProcessor: ", embeddings)
+
 
 class WorkflowOrchestrator(LightningFlow):
     def __init__(self) -> None:
@@ -27,5 +29,6 @@ class WorkflowOrchestrator(LightningFlow):
     def run(self):
         self.processor.run()
         self.server.run(self.processor.embeddings)
+
 
 app = LightningApp(WorkflowOrchestrator())

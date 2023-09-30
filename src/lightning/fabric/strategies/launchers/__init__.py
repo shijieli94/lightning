@@ -11,8 +11,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from lightning.fabric.strategies.launchers.multiprocessing import _MultiProcessingLauncher
-from lightning.fabric.strategies.launchers.subprocess_script import _SubprocessScriptLauncher
+from lightning.fabric.strategies.launchers.multiprocessing import (
+    _MultiProcessingLauncher,
+)
+from lightning.fabric.strategies.launchers.subprocess_script import (
+    _SubprocessScriptLauncher,
+)
 from lightning.fabric.strategies.launchers.xla import _XLALauncher
 
 __all__ = [

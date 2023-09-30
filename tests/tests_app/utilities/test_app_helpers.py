@@ -2,6 +2,7 @@ from functools import partial
 from unittest import mock
 
 import pytest
+
 from lightning.app import LightningApp, LightningFlow, LightningWork
 from lightning.app.core.flow import _RootFlow
 from lightning.app.frontend import StaticWebFrontend

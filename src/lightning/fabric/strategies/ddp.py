@@ -26,8 +26,12 @@ from lightning.fabric.plugins.collectives.torch_collective import default_pg_tim
 from lightning.fabric.plugins.environments.cluster_environment import ClusterEnvironment
 from lightning.fabric.plugins.io.checkpoint_io import CheckpointIO
 from lightning.fabric.plugins.precision import Precision
-from lightning.fabric.strategies.launchers.multiprocessing import _MultiProcessingLauncher
-from lightning.fabric.strategies.launchers.subprocess_script import _SubprocessScriptLauncher
+from lightning.fabric.strategies.launchers.multiprocessing import (
+    _MultiProcessingLauncher,
+)
+from lightning.fabric.strategies.launchers.subprocess_script import (
+    _SubprocessScriptLauncher,
+)
 from lightning.fabric.strategies.parallel import ParallelStrategy
 from lightning.fabric.strategies.registry import _StrategyRegistry
 from lightning.fabric.strategies.strategy import TBroadcast, _BackwardSyncControl

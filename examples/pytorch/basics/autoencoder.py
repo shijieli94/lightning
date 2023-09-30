@@ -21,13 +21,20 @@ from typing import Optional, Tuple
 
 import torch
 import torch.nn.functional as F
-from lightning.pytorch import LightningDataModule, LightningModule, Trainer, callbacks, cli_lightning_logo
+from torch import nn
+from torch.utils.data import DataLoader, random_split
+
+from lightning.pytorch import (
+    LightningDataModule,
+    LightningModule,
+    Trainer,
+    callbacks,
+    cli_lightning_logo,
+)
 from lightning.pytorch.cli import LightningCLI
 from lightning.pytorch.demos.mnist_datamodule import MNIST
 from lightning.pytorch.utilities import rank_zero_only
 from lightning.pytorch.utilities.imports import _TORCHVISION_AVAILABLE
-from torch import nn
-from torch.utils.data import DataLoader, random_split
 
 if _TORCHVISION_AVAILABLE:
     import torchvision

@@ -19,14 +19,14 @@ from unittest.mock import ANY, Mock
 
 import pytest
 import torch
+from tests_pytorch.helpers.runif import RunIf
+from torch.utils.data.dataloader import DataLoader, _MultiProcessingDataLoaderIter
+
 from lightning.pytorch import LightningModule, Trainer
 from lightning.pytorch.callbacks import Callback, ModelCheckpoint, OnExceptionCheckpoint
 from lightning.pytorch.demos.boring_classes import BoringModel, RandomDataset
 from lightning.pytorch.loops import _Loop
 from lightning.pytorch.loops.progress import _BaseProgress
-from torch.utils.data.dataloader import DataLoader, _MultiProcessingDataLoaderIter
-
-from tests_pytorch.helpers.runif import RunIf
 
 
 def test_restarting_loops_recursive():

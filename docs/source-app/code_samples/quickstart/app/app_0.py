@@ -1,5 +1,6 @@
-from lightning.app import LightningWork, LightningFlow, LightningApp
 from docs.quickstart.app_02 import HourLongWork
+
+from lightning.app import LightningApp, LightningFlow, LightningWork
 
 
 class RootFlow(LightningFlow):

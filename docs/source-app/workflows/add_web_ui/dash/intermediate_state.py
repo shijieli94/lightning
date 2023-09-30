@@ -1,9 +1,9 @@
 import dash
 import dash_daq as daq
 import dash_renderjson
-from dash import html, Input, Output
+from dash import Input, Output, html
 
-from lightning.app import LightningWork, LightningFlow, LightningApp
+from lightning.app import LightningApp, LightningFlow, LightningWork
 from lightning.app.utilities.state import AppState
 
 

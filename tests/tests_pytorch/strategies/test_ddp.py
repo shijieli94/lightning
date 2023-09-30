@@ -17,16 +17,20 @@ from unittest import mock
 
 import pytest
 import torch
+from tests_pytorch.helpers.runif import RunIf
+from torch.nn.parallel import DistributedDataParallel
+
 from lightning.fabric.plugins.environments import LightningEnvironment
 from lightning.fabric.utilities.imports import _TORCH_GREATER_EQUAL_2_0
 from lightning.pytorch import LightningModule, Trainer
 from lightning.pytorch.demos.boring_classes import BoringModel
-from lightning.pytorch.plugins import DoublePrecisionPlugin, HalfPrecisionPlugin, PrecisionPlugin
+from lightning.pytorch.plugins import (
+    DoublePrecisionPlugin,
+    HalfPrecisionPlugin,
+    PrecisionPlugin,
+)
 from lightning.pytorch.strategies import DDPStrategy
 from lightning.pytorch.trainer.states import TrainerFn
-from torch.nn.parallel import DistributedDataParallel
-
-from tests_pytorch.helpers.runif import RunIf
 
 
 @pytest.mark.parametrize(

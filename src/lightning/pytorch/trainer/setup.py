@@ -17,7 +17,11 @@ from typing import Optional, Union
 
 import lightning.pytorch as pl
 from lightning.fabric.utilities.warnings import PossibleUserWarning
-from lightning.pytorch.accelerators import CUDAAccelerator, MPSAccelerator, XLAAccelerator
+from lightning.pytorch.accelerators import (
+    CUDAAccelerator,
+    MPSAccelerator,
+    XLAAccelerator,
+)
 from lightning.pytorch.loggers.logger import DummyLogger
 from lightning.pytorch.profilers import (
     AdvancedProfiler,
@@ -28,7 +32,10 @@ from lightning.pytorch.profilers import (
     XLAProfiler,
 )
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
-from lightning.pytorch.utilities.imports import _lightning_graphcore_available, _lightning_habana_available
+from lightning.pytorch.utilities.imports import (
+    _lightning_graphcore_available,
+    _lightning_habana_available,
+)
 from lightning.pytorch.utilities.rank_zero import rank_zero_info, rank_zero_warn
 
 

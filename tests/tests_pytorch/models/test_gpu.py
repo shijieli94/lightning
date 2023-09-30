@@ -17,18 +17,18 @@ from unittest import mock
 from unittest.mock import patch
 
 import pytest
+import tests_pytorch.helpers.pipelines as tpipes
 import torch
+from tests_pytorch.helpers.datamodules import ClassifDataModule
+from tests_pytorch.helpers.runif import RunIf
+from tests_pytorch.helpers.simple_models import ClassificationModel
+
 from lightning.fabric.plugins.environments import TorchElasticEnvironment
 from lightning.fabric.utilities.device_parser import _parse_gpu_ids
 from lightning.pytorch import Trainer, seed_everything
 from lightning.pytorch.accelerators import CPUAccelerator, CUDAAccelerator
 from lightning.pytorch.demos.boring_classes import BoringModel
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
-
-import tests_pytorch.helpers.pipelines as tpipes
-from tests_pytorch.helpers.datamodules import ClassifDataModule
-from tests_pytorch.helpers.runif import RunIf
-from tests_pytorch.helpers.simple_models import ClassificationModel
 
 PRETEND_N_OF_GPUS = 16
 

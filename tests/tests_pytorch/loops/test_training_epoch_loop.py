@@ -15,6 +15,7 @@ import logging
 from unittest.mock import Mock, patch
 
 import pytest
+
 from lightning.pytorch.demos.boring_classes import BoringModel
 from lightning.pytorch.trainer.trainer import Trainer
 

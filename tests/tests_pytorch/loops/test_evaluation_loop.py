@@ -16,14 +16,14 @@ from unittest.mock import Mock, call
 
 import pytest
 import torch
+from tests_pytorch.helpers.runif import RunIf
+from torch.utils.data.dataloader import DataLoader
+from torch.utils.data.sampler import BatchSampler, RandomSampler
+
 from lightning.fabric.accelerators.cuda import _clear_cuda_memory
 from lightning.pytorch import LightningModule, Trainer
 from lightning.pytorch.demos.boring_classes import BoringModel, RandomDataset
 from lightning.pytorch.utilities import CombinedLoader
-from torch.utils.data.dataloader import DataLoader
-from torch.utils.data.sampler import BatchSampler, RandomSampler
-
-from tests_pytorch.helpers.runif import RunIf
 
 
 @mock.patch("lightning.pytorch.loops.evaluation_loop._EvaluationLoop._on_evaluation_epoch_end")

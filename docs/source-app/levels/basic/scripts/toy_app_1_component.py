@@ -1,5 +1,6 @@
 # app.py
-from lightning.app import LightningWork, LightningFlow, LightningApp
+from lightning.app import LightningApp, LightningFlow, LightningWork
+
 
 class Component(LightningWork):
     def run(self, x):
@@ -12,6 +13,7 @@ class WorkflowOrchestrator(LightningFlow):
         self.component = Component()
 
     def run(self):
-        self.component.run('i love Lightning')
+        self.component.run("i love Lightning")
+
 
 app = LightningApp(WorkflowOrchestrator())

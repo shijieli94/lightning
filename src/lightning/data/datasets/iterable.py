@@ -2,7 +2,18 @@ import math
 import warnings
 from abc import ABC, abstractmethod
 from copy import deepcopy
-from typing import Any, Dict, Generator, List, Literal, Optional, Protocol, Sequence, Tuple, runtime_checkable
+from typing import (
+    Any,
+    Dict,
+    Generator,
+    List,
+    Literal,
+    Optional,
+    Protocol,
+    Sequence,
+    Tuple,
+    runtime_checkable,
+)
 
 import torch
 from torch.utils.data import DataLoader as _DataLoader

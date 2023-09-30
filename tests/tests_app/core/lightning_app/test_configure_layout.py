@@ -3,6 +3,7 @@ from unittest import mock
 from unittest.mock import Mock
 
 import pytest
+
 from lightning.app import LightningApp, LightningFlow
 from lightning.app.frontend.stream_lit import StreamlitFrontend
 from lightning.app.frontend.web import StaticWebFrontend

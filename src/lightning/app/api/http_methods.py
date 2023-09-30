@@ -25,7 +25,11 @@ from uuid import uuid4
 from fastapi import FastAPI, HTTPException, Request, status
 from lightning_utilities.core.apply_func import apply_to_collection
 
-from lightning.app.api.request_types import _APIRequest, _CommandRequest, _RequestResponse
+from lightning.app.api.request_types import (
+    _APIRequest,
+    _CommandRequest,
+    _RequestResponse,
+)
 from lightning.app.utilities.app_helpers import Logger
 
 logger = Logger(__name__)

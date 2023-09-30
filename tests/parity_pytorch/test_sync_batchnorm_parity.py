@@ -14,10 +14,10 @@
 
 import torch
 import torch.nn as nn
-from lightning.pytorch import LightningModule, Trainer, seed_everything
+from parity_pytorch import RunIf
 from torch.utils.data import DataLoader, DistributedSampler
 
-from parity_pytorch import RunIf
+from lightning.pytorch import LightningModule, Trainer, seed_everything
 
 
 class SyncBNModule(LightningModule):

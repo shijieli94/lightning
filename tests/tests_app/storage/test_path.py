@@ -8,6 +8,7 @@ from unittest import TestCase, mock
 from unittest.mock import MagicMock, Mock
 
 import pytest
+
 from lightning.app import LightningApp, LightningFlow, LightningWork
 from lightning.app.runners import MultiProcessRuntime
 from lightning.app.storage.path import (

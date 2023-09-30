@@ -24,11 +24,21 @@ from unittest import mock
 from unittest.mock import ANY, Mock, call, patch
 
 import cloudpickle
-import lightning.fabric
-import lightning.pytorch
 import pytest
+import tests_pytorch.helpers.utils as tutils
 import torch
 import torch.nn as nn
+from tests_pytorch.conftest import mock_cuda_count, mock_mps_count
+from tests_pytorch.helpers.datamodules import ClassifDataModule
+from tests_pytorch.helpers.runif import RunIf
+from tests_pytorch.helpers.simple_models import ClassificationModel
+from torch.multiprocessing import ProcessRaisedException
+from torch.nn.parallel.distributed import DistributedDataParallel
+from torch.optim import SGD
+from torch.utils.data import DataLoader, IterableDataset
+
+import lightning.fabric
+import lightning.pytorch
 from lightning.fabric.utilities.cloud_io import _load as pl_load
 from lightning.fabric.utilities.seed import seed_everything
 from lightning.pytorch import Callback, LightningDataModule, LightningModule, Trainer
@@ -36,7 +46,11 @@ from lightning.pytorch.accelerators import CPUAccelerator, CUDAAccelerator
 from lightning.pytorch.callbacks import EarlyStopping, ModelCheckpoint, Timer
 from lightning.pytorch.callbacks.on_exception_checkpoint import OnExceptionCheckpoint
 from lightning.pytorch.callbacks.prediction_writer import BasePredictionWriter
-from lightning.pytorch.core.saving import load_hparams_from_tags_csv, load_hparams_from_yaml, save_hparams_to_tags_csv
+from lightning.pytorch.core.saving import (
+    load_hparams_from_tags_csv,
+    load_hparams_from_yaml,
+    save_hparams_to_tags_csv,
+)
 from lightning.pytorch.demos.boring_classes import (
     BoringModel,
     RandomDataset,
@@ -44,23 +58,16 @@ from lightning.pytorch.demos.boring_classes import (
     RandomIterableDatasetWithLen,
 )
 from lightning.pytorch.loggers import TensorBoardLogger
-from lightning.pytorch.overrides.distributed import UnrepeatedDistributedSampler, _IndexBatchSamplerWrapper
+from lightning.pytorch.overrides.distributed import (
+    UnrepeatedDistributedSampler,
+    _IndexBatchSamplerWrapper,
+)
 from lightning.pytorch.strategies import DDPStrategy, SingleDeviceStrategy
 from lightning.pytorch.strategies.launchers import _MultiProcessingLauncher
 from lightning.pytorch.trainer.states import RunningStage, TrainerFn
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
 from lightning.pytorch.utilities.imports import _OMEGACONF_AVAILABLE
 from lightning.pytorch.utilities.warnings import PossibleUserWarning
-from torch.multiprocessing import ProcessRaisedException
-from torch.nn.parallel.distributed import DistributedDataParallel
-from torch.optim import SGD
-from torch.utils.data import DataLoader, IterableDataset
-
-import tests_pytorch.helpers.utils as tutils
-from tests_pytorch.conftest import mock_cuda_count, mock_mps_count
-from tests_pytorch.helpers.datamodules import ClassifDataModule
-from tests_pytorch.helpers.runif import RunIf
-from tests_pytorch.helpers.simple_models import ClassificationModel
 
 if _OMEGACONF_AVAILABLE:
     from omegaconf import OmegaConf

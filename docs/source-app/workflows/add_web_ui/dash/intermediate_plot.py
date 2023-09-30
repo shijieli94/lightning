@@ -2,9 +2,9 @@ from typing import Optional
 
 import pandas as pd
 import plotly.express as px
-from dash import Dash, dcc, html, Input, Output
+from dash import Dash, Input, Output, dcc, html
 
-from lightning.app import LightningWork, LightningFlow, LightningApp
+from lightning.app import LightningApp, LightningFlow, LightningWork
 from lightning.app.storage import Payload
 
 

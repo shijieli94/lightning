@@ -22,12 +22,20 @@ from typing_extensions import get_args
 
 from lightning.fabric.plugins.precision.amp import _optimizer_handles_unscaling
 from lightning.fabric.plugins.precision.precision import Precision
-from lightning.fabric.plugins.precision.utils import _convert_fp_tensor, _DtypeContextManager
-from lightning.fabric.utilities.imports import _TORCH_GREATER_EQUAL_1_12, _TORCH_GREATER_EQUAL_2_0
+from lightning.fabric.plugins.precision.utils import (
+    _convert_fp_tensor,
+    _DtypeContextManager,
+)
+from lightning.fabric.utilities.imports import (
+    _TORCH_GREATER_EQUAL_1_12,
+    _TORCH_GREATER_EQUAL_2_0,
+)
 from lightning.fabric.utilities.types import Optimizable
 
 if TYPE_CHECKING:
-    from torch.distributed.fsdp.fully_sharded_data_parallel import MixedPrecision as TorchMixedPrecision
+    from torch.distributed.fsdp.fully_sharded_data_parallel import (
+        MixedPrecision as TorchMixedPrecision,
+    )
     from torch.distributed.fsdp.sharded_grad_scaler import ShardedGradScaler
 
 _PRECISION_INPUT = Literal["32-true", "16-true", "bf16-true", "16-mixed", "bf16-mixed"]
@@ -79,7 +87,9 @@ class FSDPPrecision(Precision):
 
     @property
     def mixed_precision_config(self) -> "TorchMixedPrecision":
-        from torch.distributed.fsdp.fully_sharded_data_parallel import MixedPrecision as TorchMixedPrecision
+        from torch.distributed.fsdp.fully_sharded_data_parallel import (
+            MixedPrecision as TorchMixedPrecision,
+        )
 
         # With PyTorch < 2.0, FSDP uses the noneness of `param_dtype` as a proxy for the `_uses_param_mixed_precision`
         # property. In order to avoid FSDP assertion failures, we therefore avoid setting `param_dtype` to

@@ -16,15 +16,21 @@ from unittest import mock
 
 import pytest
 import torch
-from lightning.pytorch import Trainer
-from lightning.pytorch.demos.boring_classes import BoringModel, RandomDataset
-from lightning.pytorch.trainer.states import RunningStage
-from torch.utils.data import DataLoader, DistributedSampler, RandomSampler, Sampler, SequentialSampler
-
 from tests_pytorch.helpers.datamodules import ClassifDataModule
 from tests_pytorch.helpers.datasets import SklearnDataset
 from tests_pytorch.helpers.runif import RunIf
 from tests_pytorch.helpers.simple_models import ClassificationModel
+from torch.utils.data import (
+    DataLoader,
+    DistributedSampler,
+    RandomSampler,
+    Sampler,
+    SequentialSampler,
+)
+
+from lightning.pytorch import Trainer
+from lightning.pytorch.demos.boring_classes import BoringModel, RandomDataset
+from lightning.pytorch.trainer.states import RunningStage
 
 
 @pytest.mark.parametrize("overfit_batches", [1, 2, 0.1, 0.25, 1.0])

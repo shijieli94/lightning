@@ -19,10 +19,15 @@ from re import escape
 from unittest import mock
 from unittest.mock import ANY, MagicMock, Mock
 
-import lightning.fabric
 import pytest
 import torch
 import torch.nn as nn
+from lightning_utilities.core.imports import RequirementCache
+from tests_fabric.helpers.runif import RunIf
+from tests_fabric.strategies.test_single_device import _MyFabricGradNorm
+from torch.optim import Adam
+
+import lightning.fabric
 from lightning.fabric import Fabric
 from lightning.fabric.plugins import HalfPrecision
 from lightning.fabric.plugins.environments import LightningEnvironment
@@ -33,15 +38,17 @@ from lightning.fabric.strategies.fsdp import (
     _has_meta_device_parameters,
     fsdp_overlap_step_with_backward,
 )
-from lightning.fabric.utilities.imports import _TORCH_GREATER_EQUAL_1_12, _TORCH_GREATER_EQUAL_2_1
-from lightning_utilities.core.imports import RequirementCache
-from torch.optim import Adam
-
-from tests_fabric.helpers.runif import RunIf
-from tests_fabric.strategies.test_single_device import _MyFabricGradNorm
+from lightning.fabric.utilities.imports import (
+    _TORCH_GREATER_EQUAL_1_12,
+    _TORCH_GREATER_EQUAL_2_1,
+)
 
 if _TORCH_GREATER_EQUAL_1_12:
-    from torch.distributed.fsdp.fully_sharded_data_parallel import CPUOffload, FullyShardedDataParallel, MixedPrecision
+    from torch.distributed.fsdp.fully_sharded_data_parallel import (
+        CPUOffload,
+        FullyShardedDataParallel,
+        MixedPrecision,
+    )
 
 
 @mock.patch("lightning.fabric.strategies.fsdp._TORCH_GREATER_EQUAL_1_12", False)

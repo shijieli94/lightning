@@ -21,7 +21,12 @@ from typing import TYPE_CHECKING, Dict, Optional, Union
 
 from lightning.app.core.queues import BaseQueue
 from lightning.app.storage.path import _filesystem, _path_to_work_artifact
-from lightning.app.storage.requests import _ExistsRequest, _ExistsResponse, _GetRequest, _GetResponse
+from lightning.app.storage.requests import (
+    _ExistsRequest,
+    _ExistsResponse,
+    _GetRequest,
+    _GetResponse,
+)
 from lightning.app.utilities.app_helpers import Logger
 from lightning.app.utilities.enum import WorkStageStatus
 

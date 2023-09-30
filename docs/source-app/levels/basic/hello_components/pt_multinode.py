@@ -1,9 +1,10 @@
 # app.py
 # ! pip install torch
-from lightning.app import LightningWork, LightningApp, CloudCompute
-from lightning.app.components import MultiNode
 import torch
 from torch.nn.parallel.distributed import DistributedDataParallel
+
+from lightning.app import CloudCompute, LightningApp, LightningWork
+from lightning.app.components import MultiNode
 
 
 def distributed_train(local_rank: int, main_address: str, main_port: int, num_nodes: int, node_rank: int, nprocs: int):
@@ -45,14 +46,14 @@ def distributed_train(local_rank: int, main_address: str, main_port: int, num_no
 
     print("Multi Node Distributed Training Done!")
 
+
 class PyTorchDistributed(LightningWork):
     def run(self, main_address: str, main_port: int, num_nodes: int, node_rank: int):
         nprocs = torch.cuda.device_count() if torch.cuda.is_available() else 1
         torch.multiprocessing.spawn(
-            distributed_train,
-            args=(main_address, main_port, num_nodes, node_rank, nprocs),
-            nprocs=nprocs
+            distributed_train, args=(main_address, main_port, num_nodes, node_rank, nprocs), nprocs=nprocs
         )
+
 
 # 32 GPUs: (8 nodes x 4 v 100)
 compute = CloudCompute("gpu-fast-multi")  # 4xV100

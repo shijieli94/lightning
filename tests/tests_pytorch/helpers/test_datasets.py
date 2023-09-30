@@ -15,7 +15,6 @@ import pickle
 
 import cloudpickle
 import pytest
-
 from tests_pytorch import _PATH_DATASETS
 from tests_pytorch.helpers.datasets import MNIST, AverageDataset, TrialMNIST
 

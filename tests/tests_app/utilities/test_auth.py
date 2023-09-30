@@ -1,6 +1,7 @@
 from typing import Dict
 
 import pytest
+
 from lightning.app.utilities.auth import _credential_string_to_basic_auth_params
 
 

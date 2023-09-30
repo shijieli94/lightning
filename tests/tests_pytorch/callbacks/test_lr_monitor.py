@@ -13,6 +13,11 @@
 # limitations under the License.
 import pytest
 import torch
+from tests_pytorch.helpers.datamodules import ClassifDataModule
+from tests_pytorch.helpers.runif import RunIf
+from tests_pytorch.helpers.simple_models import ClassificationModel
+from torch import optim
+
 from lightning.pytorch import Trainer
 from lightning.pytorch.callbacks import EarlyStopping, LearningRateMonitor
 from lightning.pytorch.callbacks.callback import Callback
@@ -20,11 +25,6 @@ from lightning.pytorch.callbacks.finetuning import BackboneFinetuning
 from lightning.pytorch.demos.boring_classes import BoringModel
 from lightning.pytorch.loggers import CSVLogger
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
-from torch import optim
-
-from tests_pytorch.helpers.datamodules import ClassifDataModule
-from tests_pytorch.helpers.runif import RunIf
-from tests_pytorch.helpers.simple_models import ClassificationModel
 
 
 def test_lr_monitor_single_lr(tmpdir):

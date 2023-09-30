@@ -20,7 +20,9 @@ from lightning.pytorch.strategies.deepspeed import DeepSpeedStrategy
 from lightning.pytorch.strategies.fsdp import FSDPStrategy
 from lightning.pytorch.strategies.parallel import ParallelStrategy
 from lightning.pytorch.strategies.single_device import SingleDeviceStrategy
-from lightning.pytorch.strategies.single_xla import SingleDeviceXLAStrategy  # noqa: F401
+from lightning.pytorch.strategies.single_xla import (  # noqa: F401
+    SingleDeviceXLAStrategy,
+)
 from lightning.pytorch.strategies.strategy import Strategy
 from lightning.pytorch.strategies.xla import XLAStrategy  # noqa: F401
 

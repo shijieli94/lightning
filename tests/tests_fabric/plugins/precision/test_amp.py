@@ -16,6 +16,7 @@ from unittest.mock import Mock
 
 import pytest
 import torch
+
 from lightning.fabric.plugins.precision.amp import MixedPrecision
 
 

@@ -1,4 +1,4 @@
-from lightning.app import LightningFlow, LightningApp
+from lightning.app import LightningApp, LightningFlow
 
 
 # Step 1: Subclass LightningFlow component to define the app flow.

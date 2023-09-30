@@ -20,12 +20,19 @@ import torch.distributed as dist
 from torch import Tensor
 
 import lightning.pytorch as pl
-from lightning.fabric.utilities.imports import _TORCH_EQUAL_2_0, _TORCH_GREATER_EQUAL_1_13
+from lightning.fabric.utilities.imports import (
+    _TORCH_EQUAL_2_0,
+    _TORCH_GREATER_EQUAL_1_13,
+)
 from lightning.fabric.utilities.warnings import PossibleUserWarning
 from lightning.pytorch.accelerators.xla import XLAAccelerator
 from lightning.pytorch.callbacks.timer import Timer
 from lightning.pytorch.loops import _Loop
-from lightning.pytorch.loops.fetchers import _DataFetcher, _DataLoaderIterDataFetcher, _PrefetchDataFetcher
+from lightning.pytorch.loops.fetchers import (
+    _DataFetcher,
+    _DataLoaderIterDataFetcher,
+    _PrefetchDataFetcher,
+)
 from lightning.pytorch.loops.progress import _BaseProgress
 from lightning.pytorch.strategies import FSDPStrategy
 from lightning.pytorch.strategies.parallel import ParallelStrategy

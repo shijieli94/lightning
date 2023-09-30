@@ -12,6 +12,7 @@ from unittest.mock import MagicMock, Mock
 
 import pytest
 from deepdiff import DeepDiff, Delta
+
 from lightning.app import LightningApp, LightningFlow, LightningWork
 from lightning.app.runners import MultiProcessRuntime
 from lightning.app.storage import Drive
@@ -19,7 +20,12 @@ from lightning.app.storage.path import Path, _artifacts_path
 from lightning.app.storage.requests import _GetRequest
 from lightning.app.testing.helpers import EmptyFlow, _MockQueue
 from lightning.app.utilities.component import _convert_paths_after_init
-from lightning.app.utilities.enum import AppStage, CacheCallsKeys, WorkFailureReasons, WorkStageStatus
+from lightning.app.utilities.enum import (
+    AppStage,
+    CacheCallsKeys,
+    WorkFailureReasons,
+    WorkStageStatus,
+)
 from lightning.app.utilities.exceptions import CacheMissException, ExitAppException
 from lightning.app.utilities.proxies import (
     ComponentDelta,

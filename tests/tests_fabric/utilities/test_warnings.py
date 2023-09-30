@@ -22,9 +22,10 @@ from contextlib import redirect_stderr
 from io import StringIO
 from pathlib import Path
 
+from lightning_utilities.core.rank_zero import WarningCache, _warn
+
 from lightning.fabric.utilities.rank_zero import rank_zero_deprecation, rank_zero_warn
 from lightning.fabric.utilities.warnings import _is_path_in_lightning
-from lightning_utilities.core.rank_zero import WarningCache, _warn
 
 
 def line_number():

@@ -38,14 +38,25 @@ from lightning.fabric.utilities.optimizer import _optimizers_to_device
 from lightning.fabric.utilities.seed import reset_seed
 from lightning.fabric.utilities.types import ReduceOp
 from lightning.pytorch.core.optimizer import LightningOptimizer
-from lightning.pytorch.overrides.distributed import _register_ddp_comm_hook, _sync_module_states, prepare_for_backward
+from lightning.pytorch.overrides.distributed import (
+    _register_ddp_comm_hook,
+    _sync_module_states,
+    prepare_for_backward,
+)
 from lightning.pytorch.plugins.precision import PrecisionPlugin
-from lightning.pytorch.strategies.launchers import _MultiProcessingLauncher, _SubprocessScriptLauncher
+from lightning.pytorch.strategies.launchers import (
+    _MultiProcessingLauncher,
+    _SubprocessScriptLauncher,
+)
 from lightning.pytorch.strategies.parallel import ParallelStrategy
 from lightning.pytorch.strategies.strategy import TBroadcast, _ForwardRedirection
 from lightning.pytorch.trainer.states import TrainerFn
 from lightning.pytorch.utilities.exceptions import _augment_message
-from lightning.pytorch.utilities.rank_zero import rank_zero_deprecation, rank_zero_info, rank_zero_only
+from lightning.pytorch.utilities.rank_zero import (
+    rank_zero_deprecation,
+    rank_zero_info,
+    rank_zero_only,
+)
 
 if TYPE_CHECKING:
     from torch.distributed.algorithms.model_averaging.averagers import ModelAverager
@@ -226,7 +237,11 @@ class DDPStrategy(ParallelStrategy):
             raise ValueError(
                 "Post-localSGD algorithm is used, but model averaging period is not provided to DDP strategy."
             )
-        from torch.distributed.optim import DistributedOptimizer, PostLocalSGDOptimizer, ZeroRedundancyOptimizer
+        from torch.distributed.optim import (
+            DistributedOptimizer,
+            PostLocalSGDOptimizer,
+            ZeroRedundancyOptimizer,
+        )
 
         for optimizer in self.optimizers:
             if isinstance(optimizer, LightningOptimizer):

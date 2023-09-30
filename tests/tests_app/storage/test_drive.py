@@ -5,6 +5,7 @@ from time import sleep
 
 import pytest
 from deepdiff import DeepDiff
+
 from lightning.app import LightningFlow, LightningWork
 from lightning.app.core.app import LightningApp
 from lightning.app.runners import MultiProcessRuntime

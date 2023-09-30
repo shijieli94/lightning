@@ -15,12 +15,12 @@ import os
 from typing import Any, Dict, Optional, Union
 from unittest.mock import Mock
 
+from tests_pytorch.helpers.runif import RunIf
+
 import lightning.pytorch as pl
 from lightning.pytorch import Callback, Trainer
 from lightning.pytorch.demos.boring_classes import BoringModel
 from lightning.pytorch.loggers.logger import Logger
-
-from tests_pytorch.helpers.runif import RunIf
 
 
 class AllRankLogger(Logger):

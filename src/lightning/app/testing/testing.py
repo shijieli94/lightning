@@ -45,7 +45,9 @@ from lightning.app.utilities.imports import _is_playwright_available, requires
 from lightning.app.utilities.log import get_logfile
 from lightning.app.utilities.logs_socket_api import _LightningLogsSocketAPI
 from lightning.app.utilities.network import LightningClient, _configure_session
-from lightning.app.utilities.packaging.lightning_utils import get_dist_path_if_editable_install
+from lightning.app.utilities.packaging.lightning_utils import (
+    get_dist_path_if_editable_install,
+)
 from lightning.app.utilities.proxies import ProxyWorkRun
 
 if _is_playwright_available():

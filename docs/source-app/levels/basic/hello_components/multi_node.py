@@ -1,5 +1,5 @@
 # !pip install torch
-from lightning.app import LightningWork, LightningApp, CloudCompute
+from lightning.app import CloudCompute, LightningApp, LightningWork
 from lightning.app.components import MultiNode
 
 
@@ -13,14 +13,6 @@ class MultiNodeComponent(LightningWork):
     ):
         print(f"ADD YOUR DISTRIBUTED CODE: {main_address=} {main_port=} {node_rank=} {world_size=}")
         print("supports ANY ML library")
-
-
-
-
-
-
-
-
 
 
 # gpu-multi-fast has 4 GPUs x 8 nodes = 32 GPUs

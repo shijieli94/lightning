@@ -16,6 +16,7 @@ from argparse import Namespace
 
 import numpy as np
 import torch
+
 from lightning.fabric.utilities.logger import (
     _add_prefix,
     _convert_params,

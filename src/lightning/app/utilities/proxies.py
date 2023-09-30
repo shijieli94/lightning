@@ -26,7 +26,18 @@ from copy import deepcopy
 from dataclasses import dataclass, field
 from functools import partial
 from threading import Event, Thread
-from typing import TYPE_CHECKING, Any, Callable, Dict, Generator, Optional, Set, Tuple, Type, Union
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Callable,
+    Dict,
+    Generator,
+    Optional,
+    Set,
+    Tuple,
+    Type,
+    Union,
+)
 
 from deepdiff import DeepDiff, Delta
 from lightning_utilities.core.apply_func import apply_to_collection
@@ -46,7 +57,10 @@ from lightning.app.utilities.enum import (
     WorkStopReasons,
     make_status,
 )
-from lightning.app.utilities.exceptions import CacheMissException, LightningSigtermStateException
+from lightning.app.utilities.exceptions import (
+    CacheMissException,
+    LightningSigtermStateException,
+)
 
 if TYPE_CHECKING:
     from lightning.app.core import LightningWork

@@ -17,10 +17,10 @@ from unittest import mock
 import pytest
 import torch
 import torch.nn as nn
+from tests_fabric.helpers.runif import RunIf
+
 from lightning.fabric import Fabric
 from lightning.fabric.plugins import XLAPrecision
-
-from tests_fabric.helpers.runif import RunIf
 
 
 class BoringPrecisionModule(nn.Module):

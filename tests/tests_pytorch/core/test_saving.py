@@ -1,11 +1,11 @@
-import lightning.pytorch as pl
 import pytest
 import torch
-from lightning.pytorch.callbacks import ModelCheckpoint
-from lightning.pytorch.demos.boring_classes import BoringDataModule, BoringModel
-
 from tests_pytorch.conftest import mock_cuda_count, mock_mps_count
 from tests_pytorch.helpers.runif import RunIf
+
+import lightning.pytorch as pl
+from lightning.pytorch.callbacks import ModelCheckpoint
+from lightning.pytorch.demos.boring_classes import BoringDataModule, BoringModel
 
 
 def create_boring_checkpoint(tmp_path, model, accelerator="cuda"):

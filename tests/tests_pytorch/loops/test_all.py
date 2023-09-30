@@ -12,10 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import pytest
+from tests_pytorch.helpers.runif import RunIf
+
 from lightning.pytorch import Callback, Trainer
 from lightning.pytorch.demos.boring_classes import BoringModel
-
-from tests_pytorch.helpers.runif import RunIf
 
 
 def _device_check_helper(batch_device, module_device):

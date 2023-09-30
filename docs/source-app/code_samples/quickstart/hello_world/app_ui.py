@@ -1,6 +1,6 @@
 import os
 
-from lightning.app import LightningFlow, LightningApp
+from lightning.app import LightningApp, LightningFlow
 from lightning.app.frontend import StaticWebFrontend, StreamlitFrontend
 from lightning.app.utilities.state import AppState
 

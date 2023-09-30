@@ -2,11 +2,12 @@ import os
 from unittest import mock
 from unittest.mock import MagicMock
 
-import lightning.data.datasets.index as dataset_index
 import numpy as np
 import pytest
-from lightning.data.datasets.index import get_index
 from lightning_utilities.core.imports import package_available
+
+import lightning.data.datasets.index as dataset_index
+from lightning.data.datasets.index import get_index
 
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 

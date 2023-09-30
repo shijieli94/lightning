@@ -4,10 +4,12 @@ from unittest import mock
 from unittest.mock import Mock
 
 import pytest
-from lightning.pytorch.strategies.launchers.subprocess_script import _SubprocessScriptLauncher
 from lightning_utilities.core.imports import RequirementCache
-
 from tests_pytorch.helpers.runif import RunIf
+
+from lightning.pytorch.strategies.launchers.subprocess_script import (
+    _SubprocessScriptLauncher,
+)
 
 _HYDRA_WITH_RUN_PROCESS = RequirementCache("hydra-core>=1.0.7")
 

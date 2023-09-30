@@ -14,15 +14,18 @@
 import sys
 from unittest.mock import Mock
 
-import lightning.fabric
 import pytest
 import torch
 import torch.distributed
+from tests_fabric.helpers.runif import RunIf
+
+import lightning.fabric
 from lightning.fabric import Fabric
 from lightning.fabric.connector import _Connector
-from lightning.fabric.plugins.precision.bitsandbytes import _BITSANDBYTES_AVAILABLE, BitsandbytesPrecision
-
-from tests_fabric.helpers.runif import RunIf
+from lightning.fabric.plugins.precision.bitsandbytes import (
+    _BITSANDBYTES_AVAILABLE,
+    BitsandbytesPrecision,
+)
 
 
 @pytest.mark.skipif(_BITSANDBYTES_AVAILABLE, reason="bitsandbytes needs to be unavailable")

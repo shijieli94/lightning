@@ -21,7 +21,11 @@ from typing import Optional
 
 from lightning.app import _PROJECT_ROOT, LightningWork
 from lightning.app.storage.path import _shared_local_mount_path
-from lightning.app.utilities.imports import _is_docker_available, _is_jinja2_available, requires
+from lightning.app.utilities.imports import (
+    _is_docker_available,
+    _is_jinja2_available,
+    requires,
+)
 
 if _is_docker_available():
     import docker

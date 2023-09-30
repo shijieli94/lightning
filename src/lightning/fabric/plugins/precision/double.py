@@ -19,7 +19,10 @@ from torch import Tensor
 from torch.nn import Module
 
 from lightning.fabric.plugins.precision.precision import Precision
-from lightning.fabric.plugins.precision.utils import _convert_fp_tensor, _DtypeContextManager
+from lightning.fabric.plugins.precision.utils import (
+    _convert_fp_tensor,
+    _DtypeContextManager,
+)
 
 
 class DoublePrecision(Precision):

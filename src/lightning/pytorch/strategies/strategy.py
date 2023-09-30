@@ -14,7 +14,19 @@
 import logging
 from abc import ABC, abstractmethod
 from contextlib import contextmanager, nullcontext
-from typing import Any, Callable, Dict, Generator, List, Mapping, Optional, Tuple, TypeVar, Union, cast
+from typing import (
+    Any,
+    Callable,
+    Dict,
+    Generator,
+    List,
+    Mapping,
+    Optional,
+    Tuple,
+    TypeVar,
+    Union,
+    cast,
+)
 
 import torch
 from torch import Tensor
@@ -26,11 +38,20 @@ from lightning.fabric.plugins import CheckpointIO
 from lightning.fabric.strategies import _StrategyRegistry
 from lightning.fabric.utilities import move_data_to_device
 from lightning.fabric.utilities.distributed import ReduceOp
-from lightning.fabric.utilities.imports import _TORCH_GREATER_EQUAL_1_13, _TORCH_GREATER_EQUAL_2_0
+from lightning.fabric.utilities.imports import (
+    _TORCH_GREATER_EQUAL_1_13,
+    _TORCH_GREATER_EQUAL_2_0,
+)
 from lightning.fabric.utilities.init import _EmptyInit
-from lightning.fabric.utilities.optimizer import _optimizer_to_device, _optimizers_to_device
+from lightning.fabric.utilities.optimizer import (
+    _optimizer_to_device,
+    _optimizers_to_device,
+)
 from lightning.fabric.utilities.types import _PATH
-from lightning.pytorch.core.optimizer import LightningOptimizer, _init_optimizers_and_lr_schedulers
+from lightning.pytorch.core.optimizer import (
+    LightningOptimizer,
+    _init_optimizers_and_lr_schedulers,
+)
 from lightning.pytorch.plugins import TorchCheckpointIO
 from lightning.pytorch.plugins.io.wrapper import _WrappingCheckpointIO
 from lightning.pytorch.plugins.precision import PrecisionPlugin

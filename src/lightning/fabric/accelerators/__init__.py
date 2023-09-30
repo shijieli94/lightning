@@ -14,7 +14,10 @@ import sys
 
 from lightning.fabric.accelerators.accelerator import Accelerator
 from lightning.fabric.accelerators.cpu import CPUAccelerator  # noqa: F401
-from lightning.fabric.accelerators.cuda import CUDAAccelerator, find_usable_cuda_devices  # noqa: F401
+from lightning.fabric.accelerators.cuda import (  # noqa: F401
+    CUDAAccelerator,
+    find_usable_cuda_devices,
+)
 from lightning.fabric.accelerators.mps import MPSAccelerator  # noqa: F401
 from lightning.fabric.accelerators.registry import _AcceleratorRegistry
 from lightning.fabric.accelerators.xla import XLAAccelerator  # noqa: F401

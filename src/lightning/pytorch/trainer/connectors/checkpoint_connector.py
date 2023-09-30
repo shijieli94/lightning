@@ -117,7 +117,9 @@ class _CheckpointConnector:
         if ckpt_path is None and SLURMEnvironment.detect() and self._hpc_resume_path is not None:
             ckpt_path = "hpc"
 
-        from lightning.pytorch.callbacks.on_exception_checkpoint import OnExceptionCheckpoint
+        from lightning.pytorch.callbacks.on_exception_checkpoint import (
+            OnExceptionCheckpoint,
+        )
 
         ft_checkpoints = [cb for cb in self.trainer.callbacks if isinstance(cb, OnExceptionCheckpoint)]
         fn = state_fn.value

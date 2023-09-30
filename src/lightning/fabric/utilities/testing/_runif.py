@@ -24,7 +24,10 @@ from lightning.fabric.accelerators import XLAAccelerator
 from lightning.fabric.accelerators.cuda import num_cuda_devices
 from lightning.fabric.accelerators.mps import MPSAccelerator
 from lightning.fabric.strategies.deepspeed import _DEEPSPEED_AVAILABLE
-from lightning.fabric.utilities.imports import _TORCH_GREATER_EQUAL_2_0, _TORCH_GREATER_EQUAL_2_1
+from lightning.fabric.utilities.imports import (
+    _TORCH_GREATER_EQUAL_2_0,
+    _TORCH_GREATER_EQUAL_2_1,
+)
 
 
 def _runif_reasons(

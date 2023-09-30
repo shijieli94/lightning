@@ -1,6 +1,8 @@
 import inspect
 from typing import TYPE_CHECKING, Any, Dict, Union
 
+from core.state import ProgressBarState, TrainerState
+
 import lightning.pytorch as pl
 from lightning.app.storage.path import Path
 from lightning.app.utilities.app_helpers import Logger
@@ -8,8 +10,6 @@ from lightning.pytorch import Callback
 from lightning.pytorch.callbacks.progress.progress_bar import get_standard_metrics
 from lightning.pytorch.loggers import TensorBoardLogger, WandbLogger
 from lightning.pytorch.utilities.parsing import collect_init_args
-
-from core.state import ProgressBarState, TrainerState
 
 if TYPE_CHECKING:
     from core.components.script_runner import ScriptRunner

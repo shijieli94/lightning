@@ -49,7 +49,10 @@ from lightning.app.utilities.app_helpers import (
 )
 from lightning.app.utilities.app_status import AppStatus
 from lightning.app.utilities.commands.base import _process_requests
-from lightning.app.utilities.component import _convert_paths_after_init, _validate_root_flow
+from lightning.app.utilities.component import (
+    _convert_paths_after_init,
+    _validate_root_flow,
+)
 from lightning.app.utilities.enum import AppStage, CacheCallsKeys
 from lightning.app.utilities.exceptions import CacheMissException, ExitAppException
 from lightning.app.utilities.layout import _collect_layout

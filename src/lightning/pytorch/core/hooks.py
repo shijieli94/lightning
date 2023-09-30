@@ -21,7 +21,11 @@ from torch.optim.optimizer import Optimizer
 
 from lightning.pytorch.utilities import move_data_to_device
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
-from lightning.pytorch.utilities.types import EVAL_DATALOADERS, STEP_OUTPUT, TRAIN_DATALOADERS
+from lightning.pytorch.utilities.types import (
+    EVAL_DATALOADERS,
+    STEP_OUTPUT,
+    TRAIN_DATALOADERS,
+)
 
 
 class ModelHooks:

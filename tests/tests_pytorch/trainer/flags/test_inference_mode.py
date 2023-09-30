@@ -16,6 +16,7 @@ from unittest.mock import Mock
 
 import pytest
 import torch
+
 from lightning.fabric.utilities.imports import _TORCH_EQUAL_2_0
 from lightning.pytorch import Trainer
 from lightning.pytorch.demos.boring_classes import BoringModel

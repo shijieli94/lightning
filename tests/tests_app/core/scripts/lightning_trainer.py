@@ -1,6 +1,9 @@
 import argparse
 
-from lightning.app.utilities.imports import _is_pytorch_lightning_available, _is_torch_available
+from lightning.app.utilities.imports import (
+    _is_pytorch_lightning_available,
+    _is_torch_available,
+)
 
 if _is_torch_available():
     import torch

@@ -26,7 +26,11 @@ from lightning.pytorch.callbacks.progress.rich_progress import _RICH_AVAILABLE
 from lightning.pytorch.loops.fetchers import _DataFetcher, _DataLoaderIterDataFetcher
 from lightning.pytorch.loops.loop import _Loop
 from lightning.pytorch.loops.progress import _BatchProgress
-from lightning.pytorch.loops.utilities import _no_grad_context, _select_data_fetcher, _verify_dataloader_idx_requirement
+from lightning.pytorch.loops.utilities import (
+    _no_grad_context,
+    _select_data_fetcher,
+    _verify_dataloader_idx_requirement,
+)
 from lightning.pytorch.trainer import call
 from lightning.pytorch.trainer.connectors.data_connector import (
     _check_dataloader_iterable,
@@ -36,7 +40,10 @@ from lightning.pytorch.trainer.connectors.data_connector import (
     _request_dataloader,
     _resolve_overfit_batches,
 )
-from lightning.pytorch.trainer.connectors.logger_connector.result import _OUT_DICT, _ResultCollection
+from lightning.pytorch.trainer.connectors.logger_connector.result import (
+    _OUT_DICT,
+    _ResultCollection,
+)
 from lightning.pytorch.trainer.states import RunningStage, TrainerFn
 from lightning.pytorch.utilities.combined_loader import CombinedLoader
 from lightning.pytorch.utilities.data import has_len_all_ranks

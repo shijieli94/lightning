@@ -19,15 +19,23 @@ if True:  # ToDo: Avoid Module level import not at top of file
     from lightning.app.storage.orchestrator import StorageOrchestrator
     from lightning.app.utilities.app_commands import run_app_commands
     from lightning.app.utilities.cloud import _sigterm_flow_handler
-    from lightning.app.utilities.component import _set_flow_context, _set_frontend_context
+    from lightning.app.utilities.component import (
+        _set_flow_context,
+        _set_frontend_context,
+    )
     from lightning.app.utilities.enum import AppStage
     from lightning.app.utilities.exceptions import ExitAppException
-    from lightning.app.utilities.load_app import extract_metadata_from_app, load_app_from_file
+    from lightning.app.utilities.load_app import (
+        extract_metadata_from_app,
+        load_app_from_file,
+    )
     from lightning.app.utilities.proxies import WorkRunner
     from lightning.app.utilities.redis import check_if_redis_running
 
 if ENABLE_MULTIPLE_WORKS_IN_DEFAULT_CONTAINER:
-    from lightning.app.launcher.lightning_hybrid_backend import CloudHybridBackend as CloudBackend
+    from lightning.app.launcher.lightning_hybrid_backend import (
+        CloudHybridBackend as CloudBackend,
+    )
 else:
     from lightning.app.launcher.lightning_backend import CloudBackend
 
@@ -77,7 +85,10 @@ def start_application_server(
 
     from lightning.app.api.http_methods import _add_tags_to_api, _validate_api
     from lightning.app.utilities.app_helpers import is_overridden
-    from lightning.app.utilities.commands.base import _commands_to_api, _prepare_commands
+    from lightning.app.utilities.commands.base import (
+        _commands_to_api,
+        _prepare_commands,
+    )
 
     apis = []
     if is_overridden("configure_api", app.root):

@@ -16,10 +16,10 @@ from unittest.mock import Mock
 
 import pytest
 import torch
+from tests_fabric.helpers.runif import RunIf
+
 from lightning.fabric.plugins.precision.deepspeed import DeepSpeedPrecision
 from lightning.fabric.utilities.types import Steppable
-
-from tests_fabric.helpers.runif import RunIf
 
 
 def test_invalid_precision_with_deepspeed_precision():

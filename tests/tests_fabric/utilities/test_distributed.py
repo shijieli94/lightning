@@ -5,13 +5,23 @@ from pathlib import Path
 
 import pytest
 import torch
-from lightning.fabric.accelerators import CPUAccelerator, CUDAAccelerator, MPSAccelerator
+from tests_fabric.helpers.runif import RunIf
+
+from lightning.fabric.accelerators import (
+    CPUAccelerator,
+    CUDAAccelerator,
+    MPSAccelerator,
+)
 from lightning.fabric.plugins.environments import LightningEnvironment
 from lightning.fabric.strategies import DDPStrategy, SingleDeviceStrategy
-from lightning.fabric.strategies.launchers.multiprocessing import _MultiProcessingLauncher
-from lightning.fabric.utilities.distributed import _gather_all_tensors, _sync_ddp, is_shared_filesystem
-
-from tests_fabric.helpers.runif import RunIf
+from lightning.fabric.strategies.launchers.multiprocessing import (
+    _MultiProcessingLauncher,
+)
+from lightning.fabric.utilities.distributed import (
+    _gather_all_tensors,
+    _sync_ddp,
+    is_shared_filesystem,
+)
 
 
 def wrap_launch_function(fn, strategy, *args, **kwargs):

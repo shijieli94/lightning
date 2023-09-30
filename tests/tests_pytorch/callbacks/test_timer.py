@@ -17,13 +17,13 @@ from datetime import timedelta
 from unittest.mock import Mock, patch
 
 import pytest
+from tests_pytorch.helpers.runif import RunIf
+
 from lightning.pytorch import Trainer
 from lightning.pytorch.callbacks import ModelCheckpoint
 from lightning.pytorch.callbacks.timer import Timer
 from lightning.pytorch.demos.boring_classes import BoringModel
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
-
-from tests_pytorch.helpers.runif import RunIf
 
 
 def test_trainer_flag(caplog):

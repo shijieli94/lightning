@@ -15,11 +15,11 @@
 import numpy as np
 import pytest
 import torch
-from lightning.pytorch import Trainer
-from lightning.pytorch.demos.boring_classes import BoringModel
-
 from tests_pytorch.core.test_results import spawn_launch
 from tests_pytorch.helpers.runif import RunIf
+
+from lightning.pytorch import Trainer
+from lightning.pytorch.demos.boring_classes import BoringModel
 
 
 def all_gather_ddp_spawn_fn(strategy):

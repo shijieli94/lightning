@@ -16,16 +16,16 @@ import os
 import sys
 from unittest.mock import patch
 
-import lightning.pytorch as pl
 import pytest
 import torch
-from lightning.pytorch import Callback, Trainer
-
 from tests_pytorch import _PATH_LEGACY
 from tests_pytorch.helpers.datamodules import ClassifDataModule
 from tests_pytorch.helpers.runif import RunIf
 from tests_pytorch.helpers.simple_models import ClassificationModel
 from tests_pytorch.helpers.threading import ThreadExceptionHandler
+
+import lightning.pytorch as pl
+from lightning.pytorch import Callback, Trainer
 
 LEGACY_CHECKPOINTS_PATH = os.path.join(_PATH_LEGACY, "checkpoints")
 CHECKPOINT_EXTENSION = ".ckpt"
@@ -75,6 +75,7 @@ def test_legacy_ckpt_threading(tmpdir, pl_version: str):
 
     def load_model():
         import torch
+
         from lightning.pytorch.utilities.migration import pl_legacy_patch
 
         with pl_legacy_patch():

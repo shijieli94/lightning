@@ -25,7 +25,11 @@ from lightning_utilities.core.imports import RequirementCache
 from torch import Tensor
 from torch.nn import Module
 
-from lightning.fabric.utilities.logger import _add_prefix, _convert_params, _flatten_dict
+from lightning.fabric.utilities.logger import (
+    _add_prefix,
+    _convert_params,
+    _flatten_dict,
+)
 from lightning.pytorch.loggers.logger import Logger, rank_zero_experiment
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
 from lightning.pytorch.utilities.rank_zero import rank_zero_only

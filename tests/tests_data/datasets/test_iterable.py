@@ -4,9 +4,10 @@ from collections import Counter
 from functools import partial
 from typing import Any, Dict
 
-import lightning
 import pytest
 import torch
+
+import lightning
 from lightning.data.datasets.iterable import (
     DataLoader,
     LightningIterableDataset,

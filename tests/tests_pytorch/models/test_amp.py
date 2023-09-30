@@ -15,14 +15,14 @@ import os
 from unittest import mock
 
 import pytest
+import tests_pytorch.helpers.utils as tutils
 import torch
+from tests_pytorch.helpers.runif import RunIf
+from torch.utils.data import DataLoader
+
 from lightning.fabric.plugins.environments import SLURMEnvironment
 from lightning.pytorch import Trainer
 from lightning.pytorch.demos.boring_classes import BoringModel, RandomDataset
-from torch.utils.data import DataLoader
-
-import tests_pytorch.helpers.utils as tutils
-from tests_pytorch.helpers.runif import RunIf
 
 
 class AMPTestModel(BoringModel):

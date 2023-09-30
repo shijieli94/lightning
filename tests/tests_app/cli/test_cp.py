@@ -4,8 +4,6 @@ from pathlib import PosixPath
 from unittest.mock import MagicMock
 
 import pytest
-from lightning.app.cli.commands import cp
-from lightning.app.cli.commands.cd import _CD_FILE, cd
 from lightning_cloud.openapi import (
     Externalv1Cluster,
     Externalv1LightningappInstance,
@@ -26,6 +24,9 @@ from lightning_cloud.openapi import (
     V1ProjectClusterBinding,
     V1UploadProjectArtifactResponse,
 )
+
+from lightning.app.cli.commands import cp
+from lightning.app.cli.commands.cd import _CD_FILE, cd
 
 
 @pytest.mark.skipif(sys.platform == "win32", reason="not supported on windows yet")

@@ -41,7 +41,10 @@ from lightning.app.cli.connect.data import connect_data
 from lightning.app.cli.lightning_cli_delete import delete
 from lightning.app.cli.lightning_cli_launch import launch
 from lightning.app.cli.lightning_cli_list import get_list
-from lightning.app.core.constants import ENABLE_APP_COMMENT_COMMAND_EXECUTION, get_lightning_cloud_url
+from lightning.app.core.constants import (
+    ENABLE_APP_COMMENT_COMMAND_EXECUTION,
+    get_lightning_cloud_url,
+)
 from lightning.app.runners.cloud import CloudRuntime
 from lightning.app.runners.runtime import dispatch
 from lightning.app.runners.runtime_type import RuntimeType

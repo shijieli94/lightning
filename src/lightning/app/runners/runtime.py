@@ -24,7 +24,12 @@ from lightning.app.core import LightningApp, LightningFlow
 from lightning.app.core.constants import APP_SERVER_HOST, APP_SERVER_PORT
 from lightning.app.runners.backends import Backend, BackendType
 from lightning.app.utilities.app_helpers import Logger
-from lightning.app.utilities.enum import AppStage, CacheCallsKeys, WorkStageStatus, make_status
+from lightning.app.utilities.enum import (
+    AppStage,
+    CacheCallsKeys,
+    WorkStageStatus,
+    make_status,
+)
 from lightning.app.utilities.load_app import load_app_from_file
 from lightning.app.utilities.proxies import WorkRunner
 

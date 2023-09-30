@@ -17,7 +17,17 @@ import time
 import warnings
 from copy import deepcopy
 from functools import partial, wraps
-from typing import TYPE_CHECKING, Any, Callable, Dict, List, Optional, Tuple, Type, Union
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Callable,
+    Dict,
+    List,
+    Optional,
+    Tuple,
+    Type,
+    Union,
+)
 
 from deepdiff import DeepHash, Delta
 
@@ -25,7 +35,11 @@ from lightning.app.core.queues import BaseQueue
 from lightning.app.storage.drive import Drive, _maybe_create_drive
 from lightning.app.storage.path import Path
 from lightning.app.storage.payload import Payload
-from lightning.app.utilities.app_helpers import _is_json_serializable, _LightningAppRef, is_overridden
+from lightning.app.utilities.app_helpers import (
+    _is_json_serializable,
+    _LightningAppRef,
+    is_overridden,
+)
 from lightning.app.utilities.app_status import WorkStatus
 from lightning.app.utilities.component import _is_flow_context, _sanitize_state
 from lightning.app.utilities.enum import (
@@ -45,7 +59,13 @@ from lightning.app.utilities.packaging.cloud_compute import (
     _CloudComputeStore,
     _maybe_create_cloud_compute,
 )
-from lightning.app.utilities.proxies import Action, LightningWorkSetAttrProxy, ProxyWorkRun, WorkRunExecutor, unwrap
+from lightning.app.utilities.proxies import (
+    Action,
+    LightningWorkSetAttrProxy,
+    ProxyWorkRun,
+    WorkRunExecutor,
+    unwrap,
+)
 
 if TYPE_CHECKING:
     from lightning.app.frontend import Frontend

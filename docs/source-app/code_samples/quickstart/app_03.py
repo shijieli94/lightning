@@ -1,6 +1,6 @@
 from time import sleep
 
-from lightning.app import LightningWork, LightningFlow, LightningApp
+from lightning.app import LightningApp, LightningFlow, LightningWork
 
 
 class HourLongWork(LightningWork):

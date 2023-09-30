@@ -15,7 +15,12 @@ import functools
 import logging
 from typing import Any
 
-from lightning.fabric.accelerators.xla import _XLA_AVAILABLE, _XLA_GREATER_EQUAL_2_1, XLAAccelerator, _using_pjrt
+from lightning.fabric.accelerators.xla import (
+    _XLA_AVAILABLE,
+    _XLA_GREATER_EQUAL_2_1,
+    XLAAccelerator,
+    _using_pjrt,
+)
 from lightning.fabric.plugins.environments.cluster_environment import ClusterEnvironment
 
 log = logging.getLogger(__name__)

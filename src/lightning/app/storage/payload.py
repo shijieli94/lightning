@@ -22,7 +22,12 @@ from typing import TYPE_CHECKING, Any, Optional, Union
 from lightning.app.core.constants import REMOTE_STORAGE_WAIT
 from lightning.app.core.queues import BaseQueue
 from lightning.app.storage.path import Path, _filesystem, _shared_storage_path
-from lightning.app.storage.requests import _ExistsRequest, _ExistsResponse, _GetRequest, _GetResponse
+from lightning.app.storage.requests import (
+    _ExistsRequest,
+    _ExistsResponse,
+    _GetRequest,
+    _GetResponse,
+)
 from lightning.app.utilities.app_helpers import Logger
 from lightning.app.utilities.component import _is_flow_context
 

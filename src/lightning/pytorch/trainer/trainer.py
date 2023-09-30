@@ -51,7 +51,9 @@ from lightning.pytorch.plugins import PLUGIN_INPUT, PrecisionPlugin
 from lightning.pytorch.profilers import Profiler
 from lightning.pytorch.strategies import ParallelStrategy, Strategy
 from lightning.pytorch.trainer import call, setup
-from lightning.pytorch.trainer.configuration_validator import _verify_loop_configurations
+from lightning.pytorch.trainer.configuration_validator import (
+    _verify_loop_configurations,
+)
 from lightning.pytorch.trainer.connectors.accelerator_connector import (
     _LITERAL_WARN,
     _PRECISION_INPUT,
@@ -59,15 +61,29 @@ from lightning.pytorch.trainer.connectors.accelerator_connector import (
     _AcceleratorConnector,
 )
 from lightning.pytorch.trainer.connectors.callback_connector import _CallbackConnector
-from lightning.pytorch.trainer.connectors.checkpoint_connector import _CheckpointConnector
+from lightning.pytorch.trainer.connectors.checkpoint_connector import (
+    _CheckpointConnector,
+)
 from lightning.pytorch.trainer.connectors.data_connector import _DataConnector
 from lightning.pytorch.trainer.connectors.logger_connector import _LoggerConnector
-from lightning.pytorch.trainer.connectors.logger_connector.result import _OUT_DICT, _PBAR_DICT, _ResultCollection
+from lightning.pytorch.trainer.connectors.logger_connector.result import (
+    _OUT_DICT,
+    _PBAR_DICT,
+    _ResultCollection,
+)
 from lightning.pytorch.trainer.connectors.signal_connector import _SignalConnector
-from lightning.pytorch.trainer.states import RunningStage, TrainerFn, TrainerState, TrainerStatus
+from lightning.pytorch.trainer.states import (
+    RunningStage,
+    TrainerFn,
+    TrainerState,
+    TrainerStatus,
+)
 from lightning.pytorch.utilities import GradClipAlgorithmType, parsing
 from lightning.pytorch.utilities.argparse import _defaults_from_env_vars
-from lightning.pytorch.utilities.compile import _maybe_unwrap_optimized, _verify_strategy_supports_compile
+from lightning.pytorch.utilities.compile import (
+    _maybe_unwrap_optimized,
+    _verify_strategy_supports_compile,
+)
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
 from lightning.pytorch.utilities.model_helpers import is_overridden
 from lightning.pytorch.utilities.rank_zero import rank_zero_info, rank_zero_warn

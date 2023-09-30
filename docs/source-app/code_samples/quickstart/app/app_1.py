@@ -2,7 +2,7 @@ import flash
 from flash.core.data.utils import download_data
 from flash.image import ImageClassificationData, ImageClassifier
 
-from lightning.app import LightningWork, LightningFlow, LightningApp, CloudCompute
+from lightning.app import CloudCompute, LightningApp, LightningFlow, LightningWork
 from lightning.pytorch.callbacks import ModelCheckpoint
 
 

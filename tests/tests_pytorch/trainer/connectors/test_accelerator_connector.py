@@ -17,10 +17,19 @@ from typing import Any, Dict
 from unittest import mock
 from unittest.mock import Mock
 
-import lightning.pytorch
 import pytest
 import torch
 import torch.distributed
+from lightning_utilities.core.imports import package_available
+from tests_pytorch.conftest import (
+    mock_cuda_count,
+    mock_mps_count,
+    mock_tpu_available,
+    mock_xla_available,
+)
+from tests_pytorch.helpers.runif import RunIf
+
+import lightning.pytorch
 from lightning.fabric.plugins.environments import (
     KubeflowEnvironment,
     LightningEnvironment,
@@ -30,7 +39,13 @@ from lightning.fabric.plugins.environments import (
 )
 from lightning.fabric.utilities.imports import _IS_WINDOWS
 from lightning.pytorch import Trainer
-from lightning.pytorch.accelerators import Accelerator, CPUAccelerator, CUDAAccelerator, MPSAccelerator, XLAAccelerator
+from lightning.pytorch.accelerators import (
+    Accelerator,
+    CPUAccelerator,
+    CUDAAccelerator,
+    MPSAccelerator,
+    XLAAccelerator,
+)
 from lightning.pytorch.plugins.io import TorchCheckpointIO
 from lightning.pytorch.plugins.layer_sync import LayerSync, TorchSyncBatchNorm
 from lightning.pytorch.plugins.precision import (
@@ -51,13 +66,15 @@ from lightning.pytorch.strategies import (
 )
 from lightning.pytorch.strategies.ddp import _DDP_FORK_ALIASES
 from lightning.pytorch.strategies.launchers import _SubprocessScriptLauncher
-from lightning.pytorch.trainer.connectors.accelerator_connector import _AcceleratorConnector, _set_torch_flags
+from lightning.pytorch.trainer.connectors.accelerator_connector import (
+    _AcceleratorConnector,
+    _set_torch_flags,
+)
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
-from lightning.pytorch.utilities.imports import _lightning_graphcore_available, _lightning_habana_available
-from lightning_utilities.core.imports import package_available
-
-from tests_pytorch.conftest import mock_cuda_count, mock_mps_count, mock_tpu_available, mock_xla_available
-from tests_pytorch.helpers.runif import RunIf
+from lightning.pytorch.utilities.imports import (
+    _lightning_graphcore_available,
+    _lightning_habana_available,
+)
 
 if _lightning_graphcore_available():
     from lightning_graphcore import IPUAccelerator, IPUStrategy

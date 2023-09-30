@@ -1,6 +1,10 @@
 import pytest
 import torch
-from lightning.fabric.plugins.precision.utils import _ClassReplacementContextManager, _DtypeContextManager
+
+from lightning.fabric.plugins.precision.utils import (
+    _ClassReplacementContextManager,
+    _DtypeContextManager,
+)
 
 
 def test_dtype_context_manager():

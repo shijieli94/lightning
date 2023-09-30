@@ -1,20 +1,22 @@
 # app.py
-from lightning.app import LightningWork, LightningFlow, LightningApp, CloudCompute
+from lightning.app import CloudCompute, LightningApp, LightningFlow, LightningWork
 
 
 class TrainComponent(LightningWork):
     def run(self, x):
-        print(f'train a model on {x}')
+        print(f"train a model on {x}")
+
 
 class AnalyzeComponent(LightningWork):
     def run(self, x):
-        print(f'analyze model on {x}')
+        print(f"analyze model on {x}")
+
 
 class WorkflowOrchestrator(LightningFlow):
     def __init__(self) -> None:
         super().__init__()
-        self.train = TrainComponent(cloud_compute=CloudCompute('cpu'))
-        self.analyze = AnalyzeComponent(cloud_compute=CloudCompute('gpu'))
+        self.train = TrainComponent(cloud_compute=CloudCompute("cpu"))
+        self.analyze = AnalyzeComponent(cloud_compute=CloudCompute("gpu"))
 
     def run(self):
         # run training once
@@ -23,5 +25,6 @@ class WorkflowOrchestrator(LightningFlow):
         # run analysis once, then every hour again...
         if self.schedule("5 4 * * *"):
             self.analyze.run("CPU machine 2")
+
 
 app = LightningApp(WorkflowOrchestrator())

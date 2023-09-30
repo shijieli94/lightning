@@ -4,7 +4,10 @@ from lightning.app.core.constants import APP_SERVER_IN_CLOUD
 from lightning.app.runners.backends.backend import Backend
 from lightning.app.runners.backends.cloud import CloudBackend
 from lightning.app.runners.backends.docker import DockerBackend
-from lightning.app.runners.backends.mp_process import CloudMultiProcessingBackend, MultiProcessingBackend
+from lightning.app.runners.backends.mp_process import (
+    CloudMultiProcessingBackend,
+    MultiProcessingBackend,
+)
 
 
 class BackendType(Enum):

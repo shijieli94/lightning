@@ -23,7 +23,10 @@ import click
 import requests
 from packaging.version import Version
 
-from lightning.app.core.constants import LIGHTNING_APPS_PUBLIC_REGISTRY, LIGHTNING_COMPONENT_PUBLIC_REGISTRY
+from lightning.app.core.constants import (
+    LIGHTNING_APPS_PUBLIC_REGISTRY,
+    LIGHTNING_COMPONENT_PUBLIC_REGISTRY,
+)
 from lightning.app.utilities.app_helpers import Logger
 
 logger = Logger(__name__)

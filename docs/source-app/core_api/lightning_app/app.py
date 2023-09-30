@@ -1,4 +1,4 @@
-from lightning.app import LightningWork, LightningFlow, LightningApp
+from lightning.app import LightningApp, LightningFlow, LightningWork
 from lightning.app.utilities.app_helpers import pretty_state
 
 

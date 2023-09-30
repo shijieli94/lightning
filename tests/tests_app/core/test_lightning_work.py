@@ -4,6 +4,7 @@ from re import escape
 from unittest.mock import MagicMock, Mock
 
 import pytest
+
 from lightning.app import LightningApp
 from lightning.app.core.flow import LightningFlow
 from lightning.app.core.work import LightningWork

@@ -17,6 +17,14 @@ from typing import Any, NamedTuple, Sequence, get_args
 
 import pytest
 import torch
+from tests_pytorch.helpers.runif import RunIf
+from torch import Tensor
+from torch.utils._pytree import tree_flatten
+from torch.utils.data import DataLoader, TensorDataset
+from torch.utils.data.dataset import Dataset, IterableDataset
+from torch.utils.data.distributed import DistributedSampler
+from torch.utils.data.sampler import RandomSampler, SequentialSampler
+
 from lightning.pytorch import Trainer
 from lightning.pytorch.demos.boring_classes import BoringModel, RandomDataset
 from lightning.pytorch.utilities.combined_loader import (
@@ -28,14 +36,6 @@ from lightning.pytorch.utilities.combined_loader import (
     _MinSize,
     _Sequential,
 )
-from torch import Tensor
-from torch.utils._pytree import tree_flatten
-from torch.utils.data import DataLoader, TensorDataset
-from torch.utils.data.dataset import Dataset, IterableDataset
-from torch.utils.data.distributed import DistributedSampler
-from torch.utils.data.sampler import RandomSampler, SequentialSampler
-
-from tests_pytorch.helpers.runif import RunIf
 
 
 @pytest.mark.parametrize(

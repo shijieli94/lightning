@@ -13,11 +13,11 @@
 # limitations under the License.
 
 import torch
-from lightning.pytorch.core.datamodule import LightningDataModule
 from lightning_utilities.core.imports import RequirementCache
+from tests_pytorch.helpers.datasets import MNIST, SklearnDataset, TrialMNIST
 from torch.utils.data import DataLoader
 
-from tests_pytorch.helpers.datasets import MNIST, SklearnDataset, TrialMNIST
+from lightning.pytorch.core.datamodule import LightningDataModule
 
 _SKLEARN_AVAILABLE = RequirementCache("scikit-learn")
 

@@ -1,9 +1,11 @@
 # app.py
 # !pip install scikit-learn xgboost
-from lightning.app import LightningWork, LightningApp
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
+
+from lightning.app import LightningApp, LightningWork
+
 
 class XGBoostComponent(LightningWork):
     def run(self):
@@ -15,7 +17,7 @@ class XGBoostComponent(LightningWork):
         bst = XGBClassifier(verbosity=3)
         bst.fit(X_train, y_train)
         preds = bst.predict(X_test)
-        print(f'preds: {preds}')
+        print(f"preds: {preds}")
 
 
 app = LightningApp(XGBoostComponent())

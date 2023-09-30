@@ -19,7 +19,10 @@ from pathlib import Path
 from shutil import copytree, rmtree
 from typing import List, Optional
 
-from lightning.app.core.constants import DOT_IGNORE_FILENAME, SYS_CUSTOMIZATIONS_SYNC_PATH
+from lightning.app.core.constants import (
+    DOT_IGNORE_FILENAME,
+    SYS_CUSTOMIZATIONS_SYNC_PATH,
+)
 from lightning.app.source_code.copytree import _IGNORE_FUNCTION, _copytree
 from lightning.app.source_code.tar import _tar_path
 from lightning.app.source_code.uploader import FileUploader

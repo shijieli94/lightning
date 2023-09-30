@@ -16,7 +16,20 @@ import os
 from contextlib import contextmanager, nullcontext
 from datetime import timedelta
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Callable, Dict, Generator, List, Literal, Mapping, Optional, Set, Type, Union
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Callable,
+    Dict,
+    Generator,
+    List,
+    Literal,
+    Mapping,
+    Optional,
+    Set,
+    Type,
+    Union,
+)
 
 import torch
 from torch import Tensor
@@ -62,16 +75,26 @@ from lightning.fabric.utilities.types import _PATH, ReduceOp
 from lightning.pytorch.core.optimizer import LightningOptimizer
 from lightning.pytorch.plugins.precision import PrecisionPlugin
 from lightning.pytorch.plugins.precision.fsdp import FSDPPrecisionPlugin
-from lightning.pytorch.strategies.launchers.subprocess_script import _SubprocessScriptLauncher
+from lightning.pytorch.strategies.launchers.subprocess_script import (
+    _SubprocessScriptLauncher,
+)
 from lightning.pytorch.strategies.parallel import ParallelStrategy
 from lightning.pytorch.strategies.strategy import TBroadcast
 from lightning.pytorch.trainer.states import TrainerFn
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
 from lightning.pytorch.utilities.model_helpers import is_overridden
-from lightning.pytorch.utilities.rank_zero import rank_zero_info, rank_zero_only, rank_zero_warn
+from lightning.pytorch.utilities.rank_zero import (
+    rank_zero_info,
+    rank_zero_only,
+    rank_zero_warn,
+)
 
 if TYPE_CHECKING:
-    from torch.distributed.fsdp.fully_sharded_data_parallel import CPUOffload, MixedPrecision, ShardingStrategy
+    from torch.distributed.fsdp.fully_sharded_data_parallel import (
+        CPUOffload,
+        MixedPrecision,
+        ShardingStrategy,
+    )
 
     if _TORCH_GREATER_EQUAL_2_0:
         from torch.distributed.fsdp.wrap import ModuleWrapPolicy
@@ -371,7 +394,9 @@ class FSDPStrategy(ParallelStrategy):
     @contextmanager
     def model_sharded_context(self) -> Generator[None, None, None]:
         log.debug(f"{self.__class__.__name__}: entered model_sharded_context.")
-        from torch.distributed.fsdp.fully_sharded_data_parallel import FullyShardedDataParallel
+        from torch.distributed.fsdp.fully_sharded_data_parallel import (
+            FullyShardedDataParallel,
+        )
         from torch.distributed.fsdp.wrap import enable_wrap
 
         with enable_wrap(
@@ -559,7 +584,9 @@ class FSDPStrategy(ParallelStrategy):
 
         if _is_sharded_checkpoint(path):
             from torch.distributed.checkpoint import FileSystemReader, load_state_dict
-            from torch.distributed.checkpoint.optimizer import load_sharded_optimizer_state_dict
+            from torch.distributed.checkpoint.optimizer import (
+                load_sharded_optimizer_state_dict,
+            )
 
             state_dict_ctx = _get_sharded_state_dict_context(self.model)
             reader = FileSystemReader(path=path)

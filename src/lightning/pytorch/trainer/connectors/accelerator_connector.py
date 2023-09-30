@@ -19,7 +19,11 @@ from typing import Dict, List, Literal, Optional, Union
 
 import torch
 
-from lightning.fabric.connector import _PRECISION_INPUT, _PRECISION_INPUT_STR, _convert_precision_to_unified_args
+from lightning.fabric.connector import (
+    _PRECISION_INPUT,
+    _PRECISION_INPUT_STR,
+    _convert_precision_to_unified_args,
+)
 from lightning.fabric.plugins.environments import (
     ClusterEnvironment,
     LightningEnvironment,
@@ -523,7 +527,10 @@ class _AcceleratorConnector:
                 return HPUPrecisionPlugin(self._precision_flag)
 
         if _LIGHTNING_COLOSSALAI_AVAILABLE:
-            from lightning_colossalai import ColossalAIPrecisionPlugin, ColossalAIStrategy
+            from lightning_colossalai import (
+                ColossalAIPrecisionPlugin,
+                ColossalAIStrategy,
+            )
 
             if isinstance(self.strategy, ColossalAIStrategy):
                 return ColossalAIPrecisionPlugin(self._precision_flag)
@@ -628,7 +635,11 @@ class _AcceleratorConnector:
             )
 
         if _lightning_habana_available():
-            from lightning_habana import HPUAccelerator, HPUParallelStrategy, SingleHPUStrategy
+            from lightning_habana import (
+                HPUAccelerator,
+                HPUParallelStrategy,
+                SingleHPUStrategy,
+            )
 
             if isinstance(self.accelerator, HPUAccelerator) and not isinstance(
                 self.strategy, (SingleHPUStrategy, HPUParallelStrategy)
@@ -700,7 +711,11 @@ def _register_external_accelerators_and_strategies() -> None:
             BaguaStrategy.register_strategies(StrategyRegistry)
 
     if _lightning_habana_available():
-        from lightning_habana import HPUAccelerator, HPUParallelStrategy, SingleHPUStrategy
+        from lightning_habana import (
+            HPUAccelerator,
+            HPUParallelStrategy,
+            SingleHPUStrategy,
+        )
 
         # TODO: Prevent registering multiple times
         if "hpu" not in AcceleratorRegistry:

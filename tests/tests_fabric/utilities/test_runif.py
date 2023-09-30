@@ -1,5 +1,4 @@
 import pytest
-
 from tests_fabric.helpers.runif import RunIf
 
 

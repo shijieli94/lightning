@@ -1,4 +1,5 @@
 import pytest
+
 from lightning.app.core.flow import LightningFlow
 from lightning.app.core.work import LightningWork
 from lightning.app.frontend.web import StaticWebFrontend

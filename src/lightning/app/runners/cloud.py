@@ -86,16 +86,25 @@ from lightning.app.core.work import LightningWork
 from lightning.app.runners.backends.cloud import CloudBackend
 from lightning.app.runners.runtime import Runtime
 from lightning.app.source_code import LocalSourceCodeDir
-from lightning.app.source_code.copytree import _IGNORE_FUNCTION, _filter_ignored, _parse_lightningignore
+from lightning.app.source_code.copytree import (
+    _IGNORE_FUNCTION,
+    _filter_ignored,
+    _parse_lightningignore,
+)
 from lightning.app.storage import Drive, Mount
 from lightning.app.utilities.app_helpers import Logger, _is_headless
 from lightning.app.utilities.auth import _credential_string_to_basic_auth_params
 from lightning.app.utilities.cloud import _get_project
-from lightning.app.utilities.clusters import _ensure_cluster_project_binding, _get_default_cluster
+from lightning.app.utilities.clusters import (
+    _ensure_cluster_project_binding,
+    _get_default_cluster,
+)
 from lightning.app.utilities.dependency_caching import get_hash
 from lightning.app.utilities.load_app import load_app_from_file
 from lightning.app.utilities.packaging.app_config import AppConfig, _get_config_file
-from lightning.app.utilities.packaging.lightning_utils import _prepare_lightning_wheels_and_requirements
+from lightning.app.utilities.packaging.lightning_utils import (
+    _prepare_lightning_wheels_and_requirements,
+)
 from lightning.app.utilities.secrets import _names_to_ids
 
 logger = Logger(__name__)

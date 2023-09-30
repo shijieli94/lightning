@@ -24,6 +24,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+
 from lightning.pytorch import cli_lightning_logo
 from lightning.pytorch.core import LightningModule
 from lightning.pytorch.demos.mnist_datamodule import MNISTDataModule

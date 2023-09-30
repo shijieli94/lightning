@@ -30,7 +30,11 @@ from fastapi import HTTPException
 from pydantic import BaseModel
 
 from lightning.app.api.http_methods import Post
-from lightning.app.api.request_types import _APIRequest, _CommandRequest, _RequestResponse
+from lightning.app.api.request_types import (
+    _APIRequest,
+    _CommandRequest,
+    _RequestResponse,
+)
 from lightning.app.utilities import frontend
 from lightning.app.utilities.app_helpers import Logger, is_overridden
 from lightning.app.utilities.cloud import _get_project
@@ -187,7 +191,11 @@ def _validate_client_command(command: ClientCommand):
 
 
 def _upload(name: str, prefix: str, obj: Any) -> Optional[str]:
-    from lightning.app.storage.path import _filesystem, _is_s3fs_available, _shared_storage_path
+    from lightning.app.storage.path import (
+        _filesystem,
+        _is_s3fs_available,
+        _shared_storage_path,
+    )
 
     name = name.replace(" ", "_")
     filepath = f"{prefix}/{name}.py"

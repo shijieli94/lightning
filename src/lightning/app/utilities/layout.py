@@ -18,7 +18,10 @@ from typing import Dict, List, Union
 
 import lightning.app
 from lightning.app.frontend.frontend import Frontend
-from lightning.app.utilities.app_helpers import _MagicMockJsonSerializable, is_overridden
+from lightning.app.utilities.app_helpers import (
+    _MagicMockJsonSerializable,
+    is_overridden,
+)
 from lightning.app.utilities.cloud import is_running_in_cloud
 
 
